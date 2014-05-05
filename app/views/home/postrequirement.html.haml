@@ -1,0 +1,81 @@
+.container
+  .row
+    %form.form-vertical
+      %fieldset
+        %label.radio-inline
+          %input#inlineCheckbox1{:name => "types of operation", :type => "radio", :value => "resedential"}
+          residentail
+        %label.radio-inline
+          %input#inlineCheckbox2{:name => "types of operation", :type => "radio", :value => "commercial"}
+          commercial
+        %label.radio-inline
+          %input#inlineCheckbox2{:name => "types of operation", :type => "radio", :value => "land"}
+          land
+        %label.radio-inline
+          %input#inlineCheckbox2{:name => "types of operation", :type => "radio", :value => "pg/rent"}
+          pg/rent
+        %label{:for => ""}
+          %br
+          %br
+        .row
+          .col-xs-2.col-md-2
+            %select.form-control
+              %option{:value => "property type"} property type
+              %option plots
+              %option apartments
+              %option independent houses
+          .col-xs-2.col-md-2
+            %select.form-control
+              %option{:value => "features"} property features
+              %option 1bhk
+              %option 2bhk
+              %option 3bhk
+              %option 2 car oarking
+              %option swiming pool
+          .col-xs-2.col-md-2
+            %select.form-control
+              %option{:value => "locality"} locality
+              %option hi-tech
+              %option tarnaka
+              %option kukatpally
+              %option kothaguda
+              %option yusfguda
+              %option nanakram guda
+              %option kphb
+              %option ameerpet
+          .col-xs-2.col-md-2
+            %select.form-control
+              %option{:value => "property facing"} property facing
+              %option north
+              %option south
+              %option east
+              %option west
+              %option south east
+      %br
+        .row
+          .col-xs-2.col-md-2
+            %input.form-control.input-extra.small{:name => "builtup area", :placeholder => "builtup area", :type => "text", :value => ""}
+            to
+          .col-xs-2.col-md-2
+            %input.form-control.input-extra.small{:name => "to", :placeholder => "builtup area", :type => "text", :value => ""}
+            sqft
+      %br
+        .row
+          .col-xs-2.col-md-2.form-group
+            %input#price.form-control{:autofocus => "", :name => "min price", :placeholder => "price", :price => "min price", :required => "", :type => "price"}min price
+          .col-xs-2.col-md-2.form-group
+            %input#price.form-control{:name => "max price", :placeholder => "price", :price => "max price", :required => "", :to => "", :type => "price"}max price
+      %br
+        
+      %br
+        .col-xs-2.col-md-2.form-group
+          %input#title.form-control{:placeholder => "title", :required => "", :title => "title", :to => "", :type => "title"}title
+      %br
+      .col-xs-2.col-md-2.form-group
+        %textarea#description.form-control{:placeholder => "description", :required => "", :title => "description", :to => "", :type => "textarea"}description
+        
+        %br
+      
+         
+          %button.btn.btn-primary.pull-right{:type => "post"}
+            post

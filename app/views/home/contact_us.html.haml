@@ -1,0 +1,78 @@
+.container
+  .row
+    .col-sm-4
+      %form.form-horizontal
+        %fieldset
+        
+        .control-group
+          %label.control-label Full Name
+          .controls
+            %input#full-name.input-xlarge{:name => "full-name", :placeholder => "full name", :type => "text"}
+              %p.help-block
+       
+        .control-group
+          %label.control-label organization
+          .controls
+            %input#organization.input-xlarge{:name => "organization", :placeholder => "organization", :type => "text"}
+              %p.help-block
+       
+        .control-group
+          %label.control-label phone no
+          .controls
+            %input.input-xlarge{:id => "phone no", :name => "phone no", :placeholder => "phone no", :type => "integer"}
+              %p.help-block it should be 10 digits
+        
+        .control-group
+          %label.control-label City / Town
+          .controls
+            %input#city.input-xlarge{:name => "city", :placeholder => "city", :type => "text"}
+              %p.help-block
+        
+        .control-group
+          %label.control-label email
+          .controls
+            %input#email.input-xlarge{:name => "email", :placeholder => "email", :type => "text"}
+              %p.help-block
+        
+        .control-group
+          %label.control-label query
+          .controls
+            %input#query.input-xlarge{:name => "query", :placeholder => "query", :type => "text"}
+              %p
+                .pull-right
+        %button.btn.btn.btn-primary{:type => "send"}
+          send
+    .col-sm-2
+      %h6 locality
+      %select.form-control
+        %option{:value => "locality"} locality
+        %option hi-tech
+        %option tarnaka
+        %option kukatpally
+        %option kothaguda
+        %option yusfguda
+        %option nanakram guda
+        %option kphb
+        %option ameerpet
+        %br
+        %br
+      .pull-right
+        %h6 Property Type
+        %select.form-control
+          %option{:value => "property type"} property type
+          %option plots/land
+          %option residentials
+          %option agriculture land
+          %option villas
+          %option form house
+        
+       
+    .col-sm-2
+      %h6 Location
+      %select.form-control
+        %option{:value => "features"} city
+        %option hyderbad
+        %option mumbai
+        %option banglore
+        %option chennai
+        %option pune

@@ -1,0 +1,22 @@
+.header
+  .top-bar-one
+    .top-bar-one-left
+      = image_tag "logo6.jpg", :height => '55', :width => '50', :align => 'left', :class => "img-circle img-thumbnail", :style => "margin-left:3px;"
+    .top-bar-one-middle
+     
+    .top-bar-one-right
+      = link_to "LOGIN",login_home_index_path
+      %span ||
+      = link_to "REGISTER",registration_home_index_path
+  .top-bar-two
+    .top-bar-two-left
+      = image_tag "logo6.jpg",:id =>"main-logo"
+    .top-bar-two-right
+      = link_to " Post Your Requirement",postrequirement_home_index_path, :class => 'btn btn-primary btn-cons'
+      = link_to " List Your Property", listproperty_home_index_path, :class => 'btn btn-primary btn-cons'
+      Location
+      %select.selectpicker
+        %option Hyderabad
+        %option Chennai
+        %option Mumbai
+    
