@@ -19,12 +19,14 @@
           %br
         .row
           .col-xs-2.col-md-2
+            property type
             %select.form-control
               %option{:value => "property type"} property type
               %option plots
               %option apartments
               %option independent houses
           .col-xs-2.col-md-2
+            property features
             %select.form-control
               %option{:value => "features"} property features
               %option 1bhk
@@ -33,6 +35,7 @@
               %option 2 car oarking
               %option swiming pool
           .col-xs-2.col-md-2
+            locality
             %select.form-control
               %option{:value => "locality"} locality
               %option hi-tech
@@ -44,6 +47,7 @@
               %option kphb
               %option ameerpet
           .col-xs-2.col-md-2
+            property facing
             %select.form-control
               %option{:value => "property facing"} property facing
               %option north
@@ -54,28 +58,32 @@
       %br
         .row
           .col-xs-2.col-md-2
-            %input.form-control.input-extra.small{:name => "builtup area", :placeholder => "builtup area", :type => "text", :value => ""}
             to
+            %input.form-control.input-extra.small{:name => "builtup area", :placeholder => "builtup area", :type => "text", :value => ""}
+              
           .col-xs-2.col-md-2
-            %input.form-control.input-extra.small{:name => "to", :placeholder => "builtup area", :type => "text", :value => ""}
             sqft
+            %input.form-control.input-extra.small{:name => "to", :placeholder => "builtup area", :type => "text", :value => ""}
+            
       %br
         .row
           .col-xs-2.col-md-2.form-group
-            %input#price.form-control{:autofocus => "", :name => "min price", :placeholder => "price", :price => "min price", :required => "", :type => "price"}min price
+            min price
+            %input#price.form-control{:autofocus => "", :name => "min price", :placeholder => "price", :price => "min price", :required => "", :type => "price"}
           .col-xs-2.col-md-2.form-group
-            %input#price.form-control{:name => "max price", :placeholder => "price", :price => "max price", :required => "", :to => "", :type => "price"}max price
+            max price
+            %input#price.form-control{:name => "max price", :placeholder => "price", :price => "max price", :required => "", :to => "", :type => "price"}
       %br
         
       %br
         .col-xs-2.col-md-2.form-group
-          %input#title.form-control{:placeholder => "title", :required => "", :title => "title", :to => "", :type => "title"}title
+          title
+          %input#title.form-control{:placeholder => "title", :required => "", :title => "title", :to => "", :type => "title"}
       %br
       .col-xs-2.col-md-2.form-group
-        %textarea#description.form-control{:placeholder => "description", :required => "", :title => "description", :to => "", :type => "textarea"}description
+        description
+        %textarea#description.form-control{:cols => "25", :name => "description", :placeholder => "description", :required => "required", :rows => "6"}
         
-        %br
-      
          
-          %button.btn.btn-primary.pull-right{:type => "post"}
-            post
+        %button.btn.btn-primary.pull-right{:type => "post"}
+          post

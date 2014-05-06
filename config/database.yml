@@ -8,8 +8,7 @@ development:
   database: property_development
   pool: 5
   timeout: 5000
-  username: muralee
-  password: 'welcome'
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,13 +18,11 @@ test:
   database: property_test
   pool: 5
   timeout: 500
-  username: muralee
-  password: 'welcome'
+ 
 
 production:
   adapter: postgresql
   database: property_production
   pool: 5
   timeout: 5000
-  username: muralee
-  password: 'welcome'
+  
