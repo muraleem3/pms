@@ -70,19 +70,19 @@
       %br
         .row
           .col-xs-2.col-md-2
-            TO
-            %input.form-control.input-extra.small{:name => "builtup area", :placeholder => "builtup area", :type => "text", :value => ""}
+            Min Price
+            %input.form-control.input-extra.small{:name => "price", :placeholder => "price", :type => "text", :value => ""}
             
           .col-xs-2.col-md-2
-            SQFT
-            %input.form-control.input-extra.small{:name => "to", :placeholder => "builtup area", :type => "text", :value => ""}
+            Max Price
+            %input.form-control.input-extra.small{:name => "price", :placeholder => "price", :type => "text", :value => ""}
               
           .col-xs-2.col-md-2.form-group
-            Min Price
-            %input#price.form-control{:autofocus => "", :name => "min price", :placeholder => "price", :price => "min price", :required => "", :type => "price"}
+            From
+            %input#price.form-control{:autofocus => "", :name => "builtup area", :placeholder => "builtup area", :price => "min price", :required => "", :type => "builtup area"}
           .col-xs-2.col-md-2.form-group
-            Max Price
-            %input#price.form-control{:name => "max price", :placeholder => "price", :price => "max price", :required => "", :to => "", :type => "price"}
+            To
+            %input#price.form-control{:name => "builtup area", :placeholder => "builtup area", :price => "builtup area", :required => "", :to => "", :type => "price"}
           .col-xs-2.col-md-2
             Area
             %select.form-control
@@ -98,5 +98,6 @@
           .col-xs-5.col-md-5
             Description
             %textarea{:cols => "5", :name => "description", :placeholder => "description", :required => "required", :rows => "2", :class => 'col-sm-1 form-control'}
+             
             %button.btn.btn-primary.pull-right{:type => "post"}
               post
