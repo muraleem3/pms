@@ -1,33 +1,33 @@
-.container
+.containe
   .row
     %form.form-vertical
       %fieldset
         %br
         %label.radio-inline
-          %input#inlineCheckbox1{:name => "types of operation", :type => "radio", :value => "resedentail"}/
-          residentail
+          %input#inlineCheckbox1{:name => "types of operation", :type => "radio", :value => "Residential"}/
+          Residential
         %label.radio-inline
-          %input#inlineCheckbox2{:name => "types of operation", :type => "radio", :value => "commercial"}/
-          commercial
+          %input#inlineCheckbox2{:name => "types of operation", :type => "radio", :value => "Commercial"}/
+          Commercial
         %label.radio-inline
-          %input#inlineCheckbox3{:name => "types of operation", :type => "radio", :value => "land"}/
-          land
+          %input#inlineCheckbox3{:name => "types of operation", :type => "radio", :value => "Land"}/
+          Land
           
         %label.radio-inline
-          %input#inlineCheckbox4{:name => "types of operation", :type => "radio", :value => "pg/rent"}/
-          pg/rent
+          %input#inlineCheckbox4{:name => "types of operation", :type => "radio", :value => "Rent/Lease"}/
+          Rent/Lease
           %br
          
         %label{:for => ""}
         .row
           .col-xs-2.col-md-2
-            %select.form-control
+            %select.form-control#mySelect
               %option{:value => "property type"} property type
               %option plots
               %option apartments
               %option independent houses
           .col-xs-2.col-md-2
-            %select.form-control
+            %select.form-control#mySelect_Bhk
               %option{:value => "features"} property features
               %option 1bhk
               %option 2bhk
@@ -53,6 +53,8 @@
               %option east
               %option west
               %option south east
+              %option south west
+
       %br
         .row
           .col-xs-2.col-md-2
@@ -90,7 +92,8 @@
             description
             %textarea#description.form-control{:cols => "25", :name => "description", :placeholder => "description", :required => "required", :rows => "6"}
           %button.btn.btn-primary.pull-right{:type => "list"}
-            list              
+            list 
+            
             
           
            

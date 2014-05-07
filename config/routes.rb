@@ -12,6 +12,8 @@ Pms::Application.routes.draw do
       get "registration"
       get "postrequirement"
       get "listproperty"
+      get "listproperty1"
+      get "testpage"
 
     end
   end
