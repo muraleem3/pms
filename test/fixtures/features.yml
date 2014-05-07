@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property_id: 1
+  property_type: MyString
+  property_type_code: MyString
+  property_bhk: 1
+  property_floors: 1
+  property_facing: MyString
+  property_carparking: 1
+  property_parking_area: MyString
+  property_swimpool: MyString
+  property_events: MyString
+  property_libroom: MyString
+  property_spa: MyString
+  property_fitcenter: MyString
+  property_trans: MyString
+
+two:
+  property_id: 1
+  property_type: MyString
+  property_type_code: MyString
+  property_bhk: 1
+  property_floors: 1
+  property_facing: MyString
+  property_carparking: 1
+  property_parking_area: MyString
+  property_swimpool: MyString
+  property_events: MyString
+  property_libroom: MyString
+  property_spa: MyString
+  property_fitcenter: MyString
+  property_trans: MyString

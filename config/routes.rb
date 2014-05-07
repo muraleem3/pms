@@ -14,6 +14,7 @@ Pms::Application.routes.draw do
       get "listproperty"
       get "listproperty1"
       get "testpage"
+      get "listproperty2"
 
     end
   end
