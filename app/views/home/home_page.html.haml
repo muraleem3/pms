@@ -1,10 +1,10 @@
 .row
   .col-sm-6.col-xs-6
     /%h4{align: "center"}   RESIDENTIAL 
-    .body-image1
+    .col-sm-6.col-xs-6
       /%h4{align: "center"} RESIDENTIAL
       =image_tag "11.jpg",:id =>"property-logo"
-    .body-image
+    .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange"} RESIDENTIAL      
       = link_to "Independent House", property_results_home_index_path, :class => 'customlabel'
@@ -19,9 +19,9 @@
       %br
       = link_to "Other Residential", property_results_home_index_path, :class => 'customlabel'
   .col-sm-6.col-xs-6
-    .body-image1
+    .col-sm-6.col-xs-6
       =image_tag "23.jpg",:id =>"property-logo"     
-    .body-image
+    .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange"} COMMERCIAL
       = link_to "Commercial Space", property_results_home_index_path, :class => 'customlabel'
@@ -35,11 +35,12 @@
       = link_to "Warehouse", property_results_home_index_path, :class => 'customlabel'
       %br      
       = link_to "Hotel/Resort", property_results_home_index_path, :class => 'customlabel'
+%br                
 .row      
   .col-sm-6.col-xs-6
-    .body-image1
+    .col-sm-6.col-xs-6
       =image_tag "36.jpg",:id =>"property-logo"   
-    .body-image
+    .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange"} LAND
       = link_to "Residential Land", property_results_home_index_path, :class => 'customlabel'
@@ -54,9 +55,9 @@
       %br       
       = link_to "Land", property_results_home_index_path, :class => 'customlabel' 
   .col-sm-6.col-xs-6
-    .body-image1
+    .col-sm-6.col-xs-6
       =image_tag "46.jpg",:id =>"property-logo"   
-    .body-image
+    .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange" } RENT/LEASE
       = link_to "Apartments/Flats", property_results_home_index_path, :class => 'customlabel'
