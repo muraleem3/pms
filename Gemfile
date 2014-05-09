@@ -56,4 +56,6 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'font-awesome-sass'
 
 #
-gem 'rails_12factor'
+group :development, :test do 
+	gem 'rails_12factor'
+end
