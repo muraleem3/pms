@@ -2,20 +2,22 @@ Pms::Application.routes.draw do
 
   root to: "home#home_page"
 
-
   resources :home do
     collection do
       get "contact_us"
-      get "property_results"
-      get "search_results"
       get "login"
       get "registration"
+    end
+  end  
+  resources :properties do
+    collection do
+      get "property_results"
+      get "search_results"
       get "postrequirement"
       get "listproperty"
       get "listproperty1"
       get "testpage"
       get "listproperty2"
-
     end
   end
 

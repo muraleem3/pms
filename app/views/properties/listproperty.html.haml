@@ -11,7 +11,7 @@
   .row
     .col-sm-2
     .col-sm-8#myDiv
-      %h2 Search Properties In India
+      %h2 List Your Property
       .row
         .col-sm-6.col-xs-2
           %br
@@ -69,12 +69,28 @@
         .col-xs-3.col-md-3 
           %label{for: "CarParking"} Spa
           = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
+
       .row
-        .pull-right.text-muted
+        .col-xs-6.col-md-6
           .form-group
-            = f.submit "Search", :class => 'btn btn-primary'
-            = raw("<i class = 'fa fa-search fa-4x'></i>")
-          
+            = f.label "Title", :class => 'col-sm-2 control-label'
+            .col-sm-12
+              = f.text_field :property_title, :class => 'form-control'
+          .form-group
+            = f.label "Description", :class => 'col-sm-2 control-label'
+            .col-sm-12
+              = f.text_area :property_title, :class => 'form-control'
+          .form-group
+            .col-sm-12
+              = f.submit "Create", :class => 'btn btn-primary'
+              = link_to 'Back', properties_path,:class => 'btn btn-primary'
+        .col-sm-2
+          .form-group
+            = f.label "Image", :class => 'col-sm-2 control-label'
+            %br
+            %br
+            .col-sm-6
+              = f.text_area :property_title, :class => 'form-control', :style=>"background-color:red;height:120px;width:120px;"
     .col-sm-2  
   %br
   %br

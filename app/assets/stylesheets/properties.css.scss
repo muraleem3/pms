@@ -1,0 +1,27 @@
+// Place all the styles related to the Property controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#myDiv {
+  border:2px solid #0094ff;
+  -webkit-border-top-left-radius:6px;
+  -webkit-border-top-right-radius:6px;
+  -moz-border-radius-topleft:6px;
+  -moz-border-radius-topright:6px;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  width:66%;
+  font-size:12pt; /* or whatever */
+  //height:500px;
+}
+#myDiv h2 {
+  text-align:center;
+  padding:4px;
+  color:#fff;
+  margin:0;
+  background-color:#0094ff;
+  font-size:12pt; /* or whatever */
+}
+#myDiv p {
+  padding:4px; 
+}
