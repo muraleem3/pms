@@ -36,11 +36,11 @@
           .col-sm-12
             = f.label :RegisterAs
             %br
-            = f.radio_button :role, true
-            = f.label :buyer
-            = f.radio_button :role, true
+            = f.radio_button :role, 'buyer/seller'
+            = f.label :"buyer/seller"
+            = f.radio_button :role, 'agent'
             = f.label :Agent
-            = f.radio_button :role, true
+            = f.radio_button :role, 'builder'
             = f.label :Builder
             %br
             = f.submit "Sign up", :class => 'btn btn-primary'
