@@ -1,16 +1,10 @@
-= form_for @property, :html => { :class => "form-horizontal", :role => "form"} do |f|
-  - if @property.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@property.errors.count, "error")
-        prohibited this from being saved:
-      %ul
-        - @property.errors.full_messages.each do |msg|
-          %li= msg
-  -#%br
-  .row
-    .btn-group{"data-toggle" => "buttons-radio"}
-      = f.radio_button :property_type, "Residential", :name=>"sample", :id=>"first", :style=>"display:none;"
-      %label.btn.btn-primary{for: "first"} First
-      = f.radio_button :property_type, "pq", :name=>"sample", :id=>"second", :style=>"display:none;"
-      %label.btn.btn-primary{for: "second"} Second
+%h1 jQuery UI Widget
+%p
+  You can see this example with different themes on the
+  %a{href: "http://plupload.com/example_jquery_ui.php"} www.plupload.com
+  website.
+%form#form{action: "/echo/json", method: "post"}
+  #uploader
+    %p Your browser doesn't have Flash, Silverlight or HTML5 support.
+  %br/
+  %input{type: "submit", value: "Submit"}/

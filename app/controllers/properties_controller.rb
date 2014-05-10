@@ -3,6 +3,7 @@ class PropertiesController < ApplicationController
 
 	def listproperty
 		@property = Property.new
+		@properties = Property.all
 	end
 
 	def postrequirement
