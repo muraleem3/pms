@@ -6,7 +6,6 @@ gem 'rails', '4.0.3'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'pg'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -47,6 +46,12 @@ end
 
 #HAML
 gem 'haml-rails'
+gem 'devise'
+gem 'fog'
+gem 'carrierwave'
+gem 'rails3-jquery-autocomplete'
+gem 'jquery-ui-rails', '4.1.0'
+gem 'jquery.fileupload-rails'
 
 #STYLE-Bootstrap
 gem 'bootstrap-sass', '~> 3.0.3.0'

@@ -1,6 +1,6 @@
 .container
   .row
-    %form.form-vertical
+    = form_for Property.new, :html => { :class => "form-horizontal", :role => "form" } do |f|
       %fieldset
         %br
         %label.radio-inline
@@ -26,7 +26,7 @@
               %option plots
               %option apartments
               %option independent houses
-          .col-xs-2.col-md-2
+          .col-xs-2.col-md-2i
             %select.form-control
               %option{:value => "features"} property features
               %option 1bhk
@@ -76,21 +76,10 @@
             %option both
             %br
            
-      %br
-        .col-xs-2.col-md-2.form-group
-          %input#image.form-control{:placeholder => "image", :required => "required", :title => "image", :type => "title"}image
-          %br
-          %button.btn.btn-primary.pull-right{:type => "browse"}
-            browse
-          %br
-          %input#image.form-control{:placeholder => "title", :required => "required", :title => "title", :type => "title"}title
-          %br
-         
-          %label{:for => "name"}
-            description
-            %textarea#description.form-control{:cols => "25", :name => "description", :placeholder => "description", :required => "required", :rows => "6"}
-          %button.btn.btn-primary.pull-right{:type => "list"}
-            list              
-            
-          
-           
+            %label{:for => "name"}
+              description
+              %textarea#description.form-control{:cols => "25", :name => "description", :placeholder => "description", :required => "required", :rows => "6"}
+              %button.btn.btn-primary.pull-right{:type => "list"}
+                list              
+= render "shared/form"      
+

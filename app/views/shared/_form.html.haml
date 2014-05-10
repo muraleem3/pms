@@ -1,0 +1,11 @@
+= form_for Property.new, :html => { :class => "form-horizontal", :role => "form" } do |f|
+  .col-sm-8
+    .form-group
+    
+    .col-sm-5
+      = f.text_field :property_image_path, :class => 'form-control'
+      .form-group
+        .col-sm-5
+          = f.file_field :avatar
+          .col-sm-8.pull-right
+          = f.submit "Save", :class => 'btn btn-primary'
