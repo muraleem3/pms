@@ -10,6 +10,8 @@
       .row
         = render "shared/header"
       .row
+        %p.notice= notice
+        %p.alert= alert
         = yield
       .row
         = render  "shared/footer.html"

@@ -1,0 +1,38 @@
+.container
+  = form_for Property.new, :html => { :class => "form-horizontal", :role => "form" } do |f|
+    .row
+      %br
+      .col-sm-2
+        
+      .col-sm-2
+        %id1
+          .col-sm-6#id1
+            = f.radio_button :property_type, true
+            = f.label :Residential, "Residential"
+          .col-sm-6#id1
+            = f.radio_button :property_type, true
+            = f.label :Commercial, "Commercial"
+      .col-sm-2
+        %id1
+          .col-sm-6#id1
+            = f.radio_button :property_type, true
+            = f.label :Land, "Land"
+          .col-sm-6#id1
+            = f.radio_button :property_type, true
+            = f.label :Rent, "Rent/Lease"
+    .row
+      .col-sm-2
+        = f.label :Propertytype
+        = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"  
+      .col-sm-2
+        = f.label :Price
+        = f.number_field :property_type, :min => 1, :max => 7, :step => 1
+      .col-sm-2
+        
+ 
+    .row
+   
+    .row
+    
+ 
+  

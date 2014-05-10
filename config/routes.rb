@@ -1,5 +1,6 @@
 Pms::Application.routes.draw do
 
+  devise_for :users
   root to: "home#home_page"
 
   resources :home do
@@ -15,9 +16,9 @@ Pms::Application.routes.draw do
       get "search_results"
       get "postrequirement"
       get "listproperty"
-      get "listproperty1"
-      get "testpage"
-      get "listproperty2"
+      get "test"
+      get "testfile"
+      get "imagetest"
     end
   end
 
@@ -76,4 +77,6 @@ Pms::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :properties
+
 end

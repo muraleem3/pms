@@ -45,6 +45,4 @@ class PropertiesController < ApplicationController
           params.require(:property).permit(:property_type,:property_type_code,:property_location,:property_locality,:property_min_price,:property_max_price,:property_area_measure,:property_image_path,:property_title,:property_description)
     end
 
-
-
 end

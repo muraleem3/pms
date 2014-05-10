@@ -1,0 +1,25 @@
+.container
+  .row
+    = form_for Property.new, :html => { :class => "form-horizontal", :role => "form" } do |f|
+      %fieldset
+        %br
+        %label.radio-inline
+          %input#inlineCheckbox1{:name => "types of operation", :type => "radio", :value => "resedentail"}/
+          residentail
+        %label.radio-inline
+          %input#inlineCheckbox2{:name => "types of operation", :type => "radio", :value => "commercial"}/
+          commercial
+        %label.radio-inline
+          %input#inlineCheckbox3{:name => "types of operation", :type => "radio", :value => "land"}/
+          land
+          
+        %label.radio-inline
+          %input#inlineCheckbox4{:name => "types of operation", :type => "radio", :value => "pg/rent"}/
+          pg/rent
+      = f.label :property_type
+      %br
+      .col-xs-2.col-md-2
+        = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"  
+        
+      
+        
