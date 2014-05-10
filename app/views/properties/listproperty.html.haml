@@ -46,32 +46,34 @@
           %label{for: "AreaMeasure"} AreaMeasure
           = f.select :property_area_measure, options_for_select([['Sq.Ft.'],['Sq.Yards'],['Sq.Meter'],['Acres'],['Cents'],['Hectares']]), { :include_blank=>true },:class=>"form-control"
       .row    
-        .row
-        .col-xs-3.col-md-3
-          %label{for: "BHK"} BHK
-          = f.select :property_bhk, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Floors"} Floors
-          = f_form.select :property_floors, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]]), { :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Facing"} Facing
-          = f_form.select :property_facing, options_for_select([['East'],['West'],['South'],['North']]), { :include_blank=>true },:class=>"form-control" 
-        .col-xs-3.col-md-3 
-          %label{for: "CarParking"} CarParking
-          = f_form.select :property_carparking, options_for_select([['1'],['2'],['3']]), { :include_blank=>true },:class=>"form-control"
+        = f.fields_for:features do |f_form|  
+          .col-xs-3.col-md-3
+            %label{for: "BHK"} BHK
+            = f_form.select :property_bhk, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-md-3
+            %label{for: "Floors"} Floors
+            = f_form.select :property_floors, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]]), { :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-md-3
+            %label{for: "Facing"} Facing
+            = f_form.select :property_facing, options_for_select([['East'],['West'],['South'],['North']]), { :include_blank=>true },:class=>"form-control" 
+          .col-xs-3.col-md-3 
+            %label{for: "CarParking"} CarParking
+            = f_form.select :property_carparking, options_for_select([['1'],['2'],['3']]), { :include_blank=>true },:class=>"form-control"
       .row
-        .col-xs-3.col-md-3
-          %label{for: "Events Room"} Events Room
-          = f_form.select :property_events, options_for_select([["Yes"], ["No"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: " Library Room"} Library Room
-          = f_form.select :property_libroom, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Fitness Center"} Fitness Center
-          = f_form.select :property_fitcenter, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control" 
-        .col-xs-3.col-md-3 
-          %label{for: "Spa"} Spa
-          = f_form.select :property_spa, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
+
+        = f.fields_for:features do |f_form|    
+          .col-xs-3.col-md-3
+            %label{for: "Events Room"} Events Room
+            = f_form.select :property_events, options_for_select([["Yes"], ["No"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-md-3
+            %label{for: " Library Room"} Library Room
+            = f_form.select :property_libroom, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-md-3
+            %label{for: "Fitness Center"} Fitness Center
+            = f_form.select :property_fitcenter, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control" 
+          .col-xs-3.col-md-3 
+            %label{for: "Spa"} Spa
+            = f_form.select :property_spa, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
       .row
         .col-xs-6.col-md-6
           .form-group
