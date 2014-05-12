@@ -47,7 +47,7 @@ $(document ).ready(function() {
 
 	// Handle the case when form was submitted before uploading has finished
 	$(function () {
-	$(":myFile").change(function () {
+	$(":file").change(function () {
 		alert("Display image")
         if (this.files && this.files[0]) {
             var reader = new FileReader();

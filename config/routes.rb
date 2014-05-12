@@ -8,6 +8,7 @@ Pms::Application.routes.draw do
       get "contact_us"
       get "login"
       get "registration"
+      get "imagetest"
     end
   end  
   resources :properties do
@@ -18,7 +19,7 @@ Pms::Application.routes.draw do
       get "listproperty"
       get "test"
       get "testfile"
-      get "imagetest"
+      
     end
   end
 
