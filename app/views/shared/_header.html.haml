@@ -1,9 +1,9 @@
 .header
   .top-bar-one
     .top-bar-one-left
-      = image_tag "logo6.jpg", :height => '55', :width => '50', :align => 'left', :class => "img-circle img-thumbnail", :style => "margin-left:3px;"
+      = image_tag "logo6.jpg", :height => '55', :width => '50', :align => 'left', :class => "img-circle img-thumbnail", :style => "margin-left:3px;"      
     .top-bar-one-middle
-      
+      = link_to "HOME",root_path      
     .top-bar-one-right
       - if !current_user.present? 
         = link_to "Login", user_session_path, :data => {:method => :post}

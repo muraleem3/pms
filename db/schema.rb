@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507122120) do
+ActiveRecord::Schema.define(version: 20140512115604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20140507122120) do
     t.datetime "updated_at"
   end
 
+  create_table "imageuploaders", force: true do |t|
+    t.string   "imagename"
+    t.string   "file_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "properties", force: true do |t|
     t.integer  "property_id"
     t.string   "property_type"
@@ -50,21 +57,15 @@ ActiveRecord::Schema.define(version: 20140507122120) do
     t.float    "property_max_price"
     t.float    "property_area_min"
     t.string   "property_area_measure"
-    t.string   "property_address"
-    t.string   "property_name"
-    t.string   "property_description"
-    t.float    "property_min_price"
-    t.float    "property_max_price"
-    t.string   "property_transaction"
-    t.string   "_type"
-    t.string   "property_posted_by"
-    t.string   "property_facing"
-    t.float    "property_area_min"
-    t.float    "property_area_max"
-    t.string   "property_area_measure"
-    t.string   "property_bhk"
+    t.string   "property_image_path"
+    t.string   "property_other_details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "property_title"
     t.string   "avatar"
+    t.string   "user_id"
+    t.string   "order_type"
+    t.string   "dont_list"
   end
 
   create_table "users", force: true do |t|
@@ -80,11 +81,10 @@ ActiveRecord::Schema.define(version: 20140507122120) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
-    t.integer  "mobilenumber"
-    t.string   "role"
-    t.boolean  "alert"
     t.string   "mobile"
+    t.string   "username"
+    t.boolean  "alert"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,0 +1,19 @@
+.container
+  .row
+    %h4 Property List
+    %table.table.table-striped.table-bordered.table-condensed.table-hover
+      %thead
+        %tr 
+          %th Property ID
+          %th Title
+          %th Description
+          %th
+          %th
+      %tbody  
+        - @properties.each do |property|
+          %tr 
+            %td= property.id
+            %td= property.property_title
+            %td= property.property_description
+            %td= link_to 'Edit', edit_property_path(property)
+            %td=link_to raw("<span class='glyphicon glyphicon-trash'></span>"), property, method: :delete,data: { confirm: 'Are you sure?' },:class => "btn btn-danger btn-sm"
