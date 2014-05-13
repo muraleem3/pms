@@ -1,6 +1,6 @@
 class Property < ActiveRecord::Base
-  has_many :features
-
+  has_many :features,:dependent => :destroy
+  belongs_to :user
 
   accepts_nested_attributes_for :features
   #validates :property_title, :presence => true
@@ -9,5 +9,4 @@ class Property < ActiveRecord::Base
   #validates :imagename, :presence => true
   mount_uploader :property_image_path,  AvatarUploader
   scope :search, lambda { |id| where(:id => id)}
-
 end

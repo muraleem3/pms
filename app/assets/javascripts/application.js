@@ -10,53 +10,55 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.fileupload
+//= require bootstrap
 //= require_tree .
 
-$(document ).ready(function() {
+/*
+	// Handle the case when form was submitted before uploading has finished
+    $(function () {
+	$(":file").change(function () {
+	    alert("Display image")
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+    function imageIsLoaded(e) {
+        $('#myImg').attr('src', e.target.result);
+    };
+
+
+// For Selecting Property Type
+
     /*$("#inlineCheckbox1").on('click',function() {
-        alert("Hello");
+      alert("Hello");
       });*/
 
 
     
-    $('input:radio#first').click(function() {
+  /*  $('input:radio#first').click(function() {
         alert("hi");
         if ($(this).val() == 'Residential') {
             alert("hello");
         }
 
-    })
+    });
     $('input:radio#second').click(function() {
         alert("higf");
         
-    })
+    });
 
 
     /*$("input[name='sample']").click(function() {
-        if ($(this).val() == 'first') {alert("hey");}
-	});*/
+      if ($(this).val() == 'first') {alert("hey");}
+      });
 })
+*/
 
-
-
-//= require jquery.fileupload
-
-	// Handle the case when form was submitted before uploading has finished
-	$(function () {
-	$(":file").change(function () {
-		alert("Display image")
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-});
-
-function imageIsLoaded(e) {
-    $('#myImg').attr('src', e.target.result);
-};

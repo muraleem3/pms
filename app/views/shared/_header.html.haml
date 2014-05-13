@@ -16,11 +16,20 @@
     .top-bar-two-left
       = image_tag "logo_659978_web.jpg",:id =>"main-logo"
     .top-bar-two-right
-      = link_to " Post Your Requirement",postrequirement_properties_path, :class => 'btn btn-primary btn-cons'
-      = link_to " List Your Property", listproperty_properties_path, :class => 'btn btn-primary btn-cons'
-      Location
-      %select.selectpicker
-        %option Hyderabad
-        %option Chennai
-        %option Mumbai
+      .row
+        .col-xs-8
+          = link_to " Post Your Requirement",postrequirement_properties_path, :class => 'btn btn-primary btn-cons'
+          = link_to " List Your Property", listproperty_properties_path, :class => 'btn btn-primary btn-cons'
+        Location
+        %select.selectpicker
+          %option Hyderabad
+          %option Chennai
+          %option Mumbai
+      %br    
+      .row
+        .col-xs-8
+          - if current_user.present?  
+            = link_to "My Properties", properties_path, :class => 'btn btn-primary btn-cons'
+            = link_to "Buy Requests", buy_requests_properties_path, :class => 'btn btn-primary btn-cons'
+            = link_to "Sell Requests", sell_requests_properties_path, :class => 'btn btn-primary btn-cons'
 

@@ -16,13 +16,13 @@
         .col-sm-6.col-xs-2
           %br
           .btn-group{"data-toggle" => "buttons-radio"}
-            = f.radio_button :property_type, "Residential", :id=>"first",:style=>"display:none;"  
-            %label.btn.btn-primary{for: "Residential"} Residential
-            = f.radio_button :property_type, "Commercial", :id=>"first", :style=>"display:none;"
-            %label.btn.btn-primary{for: "Commercial"} Commercial
-            = f.radio_button :property_type, "Land", :id=>"first", :style=>"display:none;"  
+            = f.radio_button :property_type, "Residential",:style=>"display:none;"
+            %label.btn.btn-primary{for: "Residential", :id=>"first"} Residential
+            = f.radio_button :property_type, "Commercial",:style=>"display:none;"
+            %label.btn.btn-primary{for: "Commercial",:id=>"first"} Commercial
+            = f.radio_button :property_type, "Land", :style=>"display:none;"  
             %label.btn.btn-primary{for: "Land"} Land
-            = f.radio_button :property_type, "RentLease", :id=>"first", :style=>"display:none;"
+            = f.radio_button :property_type, "RentLease", :style=>"display:none;"
             %label.btn.btn-primary{for: "RentLease"} Rent/Lease
         .col-xs-3.col-md-3
           %label{for: "Location"} Location
@@ -86,7 +86,7 @@
           .form-group
             .col-sm-12
               = f.hidden_field :order_type,:value => "sell"
-              = f.submit "Create", :class => 'btn btn-primary'
+              = f.submit "List", :class => 'btn btn-primary'
               = link_to 'Back', properties_path,:class => 'btn btn-primary'
         .col-xs-4.col-md-4
           .col-sm-6

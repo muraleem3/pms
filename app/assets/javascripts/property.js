@@ -1,4 +1,57 @@
 $(document ).ready(function() {
+
+    $('#listcheck').click(function () {
+
+        var thisCheck = $(this);
+        if (thisCheck.is(':checked'))
+        {
+            thisCheck.val('true'); 
+        } 
+        else 
+        {
+            thisCheck.val('false');            
+        }
+
+        alert(thisCheck.val());
+    });
+
+
+
+
+
+
+
+
+
+    $("#first").on('click',function() {
+        alert("one");
+        if ($(this).val() == 'Residential') {
+            alert("hello");
+        }
+
+    });
+    $("#second").on('click',function() {
+        alert("2");
+        if ($(this).val() == 'Residential') {
+            alert("hello");
+        }
+
+    });
+    $("#first").on('click',function() {
+        alert("hi");
+        if ($(this).val() == 'Residential') {
+            alert("hello");
+        }
+
+    });
+    $("#first").on('click',function() {
+        alert("hi");
+        if ($(this).val() == 'Residential') {
+            alert("hello");
+        }
+
+    });
+    
     /*$("#inlineCheckbox1").on('click',function() {
         alert("Hello");
       });*/
@@ -76,5 +129,6 @@ $(document ).ready(function() {
             $("#mySelect_Bhk").append('<option value=12>Office Space</option>');
         } 
     });
+
 
 })

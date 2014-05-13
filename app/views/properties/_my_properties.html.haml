@@ -1,19 +1,27 @@
 .container
-  .row
-    %h4 Property List
-    %table.table.table-striped.table-bordered.table-condensed.table-hover
-      %thead
-        %tr 
-          %th Property ID
-          %th Title
-          %th Description
-          %th
-          %th
-      %tbody  
-        - @properties.each do |property|
+  .col-sm-1
+  .col-sm-10
+    .row
+      %h4 Property List
+      %table.table.table-striped.table-bordered.table-condensed.table-hover
+        %thead
           %tr 
-            %td= property.id
-            %td= property.property_title
-            %td= property.property_description
-            %td= link_to 'Edit', edit_property_path(property)
-            %td=link_to raw("<span class='glyphicon glyphicon-trash'></span>"), property, method: :delete,data: { confirm: 'Are you sure?' },:class => "btn btn-danger btn-sm"
+            %th Property ID
+            %th Order Type
+            %th Title
+            %th Description
+            %th Dont List
+            %th
+            %th
+        %tbody  
+          - current_user.properties.each do |property|
+            %tr 
+              %td= property.id
+              %td= property.order_type
+              %td= property.property_title
+              %td= property.property_description
+              %td
+                %input{type: "checkbox",id: "listcheck"}
+              %td= link_to 'Edit', edit_property_path(property)
+              %td=link_to raw("<span class='glyphicon glyphicon-trash'></span>"), property, method: :delete,data: { confirm: 'Are you sure?' },:class => "btn btn-danger btn-sm"
+  .col-sm-1
