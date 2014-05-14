@@ -2,12 +2,13 @@
   .col-sm-1
   .col-sm-10
     .row
-      %h4 Property List
+      %h4 Request List
       %table.table.table-striped.table-bordered.table-condensed.table-hover
         %thead
           %tr 
             %th Property ID
-            %th Order Type
+            %th User
+            %th Request Type
             %th Title
             %th Description
             %th Dont List
@@ -17,6 +18,7 @@
           - current_user.properties.each do |property|
             %tr 
               %td= property.id
+              %td= property.user.username
               %td= property.order_type
               %td= property.property_title
               %td= property.property_description

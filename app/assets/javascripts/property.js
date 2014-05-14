@@ -1,5 +1,7 @@
 $(document ).ready(function() {
 
+    // To modify Propery as NotListed
+
     $('#listcheck').click(function () {
 
         var thisCheck = $(this);
@@ -17,41 +19,73 @@ $(document ).ready(function() {
 
 
 
+    //To Alter Property Values
 
-
-
-
-
-
+    //Residential
     $("#first").on('click',function() {
-        alert("one");
-        if ($(this).val() == 'Residential') {
-            alert("hello");
-        }
+
+        $('#mySelect').empty();
+        $('#mySelect_Bhk').removeAttr('disabled');
+
+        $("#mySelect").append('<option value=res_indhouse>Independent House </option>');
+        $("#mySelect").append('<option value=res_aptmnt>Apartment </option>');
+        $("#mySelect").append('<option value=1>Independent Villa </option>');           
+        $("#mySelect").append('<option value=1>Flat</option>');
+        $("#mySelect").append('<option value=1>Farm House</option>');
+        $("#mySelect").append('<option value=1>Other Residential</option>');
 
     });
+
+    //Commercial
     $("#second").on('click',function() {
-        alert("2");
-        if ($(this).val() == 'Residential') {
-            alert("hello");
-        }
+
+        $('#mySelect').empty(); 
+        $('#mySelect_Bhk').attr('disabled',true);
+
+        $("#mySelect").append('<option value=1>Commercial Space</option>');
+        $("#mySelect").append('<option value=12>Office Space</option>');
+        $("#mySelect").append('<option value=3>IT/Software Technology Park</option>');           
+        $("#mySelect").append('<option value=1> Industrial Space</option>');
+        $("#mySelect").append('<option value=1>Warehouse</option>');
+        $("#mySelect").append('<option value=1>Hotel/Resort</option>');
 
     });
-    $("#first").on('click',function() {
-        alert("hi");
-        if ($(this).val() == 'Residential') {
-            alert("hello");
-        }
+
+    //Land
+    $("#third").on('click',function() {
+
+        $('#mySelect').empty();
+        $('#mySelect_Bhk').attr('disabled', 'disabled');
+        
+        $("#mySelect").append('<option value=lnd_resland>Residential Land</option>');
+        $("#mySelect").append('<option value=lnd_comland>Commercial Land</option>');
+        $("#mySelect").append('<option value=3>Industrial Land</option>');           
+        $("#mySelect").append('<option value=1> Agricultural Land </option>');
+        $("#mySelect").append('<option value=1> Farm House Land</option>');
+        $("#mySelect").append('<option value=1>Land</option>');   
 
     });
-    $("#first").on('click',function() {
-        alert("hi");
-        if ($(this).val() == 'Residential') {
-            alert("hello");
-        }
 
+    //Pg/Rent
+    $("#four").on('click',function() {
+
+        $('#mySelect').empty();
+        $('#mySelect_Bhk').removeAttr('disabled');
+
+        $("#mySelect").append('<option value=1>Apartments/Flats</option>');
+        $("#mySelect").append('<option value=12>Individual Houses</option>');
+        $("#mySelect").append('<option value=3>Villas</option>');           
+        $("#mySelect").append('<option value=1>Serviced Apartments</option>');
+        $("#mySelect").append('<option value=1>Office Space</option>');
+        $("#mySelect").append('<option value=1>Industrial Space</option>');  
     });
     
+
+    //To change The Button Color
+    $('input[thisype="submit"]').click(function(){
+        $(this).toggleClass('red');
+    });
+
     /*$("#inlineCheckbox1").on('click',function() {
         alert("Hello");
       });*/
@@ -117,10 +151,7 @@ $(document ).ready(function() {
         alert($(this).val());
 
         if ($(this).val() == 'res_indhouse') {
-            $('#mySelect_Bhk').empty();
-
-            $("#mySelect_Bhk").append('<option value=1>Independent House </option>');
-            $("#mySelect_Bhk").append('<option value=1>Apartment </option>');
+            
         } 
         else if ($(this).val() == 'lnd_comland') {
             $('#mySelect_Bhk').empty();

@@ -20,8 +20,44 @@
   color:#fff;
   margin:0;
   background-color:#0094ff;
-  font-size:12pt; /* or whatever */
+  font-size:21pt; /* or whatever */
 }
 #myDiv p {
+  padding:4px; 
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  //color: red;
+  background-color: #0094ff;
+  border-color: orange;
+}
+
+.btn-primary.active {
+    -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+#myDiv2 {
+  border:2px solid #0094ff;
+  -webkit-border-top-left-radius:6px;
+  -webkit-border-top-right-radius:6px;
+  -moz-border-radius-topleft:6px;
+  -moz-border-radius-topright:6px;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  //width:90%;
+  font-size:12pt; /* or whatev\er */
+  //height:500px;
+}
+#myDiv2 h2 {
+  text-align:center;
+  padding:4px;
+  color:#fff;
+  margin:0;
+  background-color:#0094ff;
+  font-size:21pt; /* or whatever */
+}
+#myDiv2 p {
   padding:4px; 
 }

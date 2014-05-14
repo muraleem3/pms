@@ -16,6 +16,8 @@ class PropertiesController < ApplicationController
 
 	def property_results
 		@property = Property.new
+    @property.features << Feature.new
+    @properties = Property.all
 	end
 
 	def testpage
@@ -32,10 +34,12 @@ class PropertiesController < ApplicationController
 	end
 
 	def create
-		@property = Property.new(property_params)
-    @property.user_id= current_user.id
-    #@property.user.username
-    @property.property_owner= current_user.username
+
+    if !current_user.nil?
+		  @property = Property.new(property_params)
+      @property.user_id= current_user.id
+      #@property.user.username
+      @property.property_owner= current_user.username
 
       respond_to do |format|
         if @property.save
@@ -45,7 +49,10 @@ class PropertiesController < ApplicationController
           format.html { render action: 'new' }
           #property_floorsmat.json { render json: @exam.errors, status: :unprocessable_entity }
         end
-      end
+      end 
+    else
+      render :template => '/devise/sessions/new' 
+    end 
 	end
 
 	def edit
@@ -87,7 +94,7 @@ class PropertiesController < ApplicationController
 
 	def property_params	
           params.require(:property).permit(:property_type,:property_type_code,:property_location,
-          	:property_locality,:property_min_price,:property_max_price,:property_area_measure,:order_type,
+          	:property_locality,:property_min_price,:property_max_price,:property_area_min,:property_area_measure,:order_type,
           	:property_image_path,:property_title,:property_description,
           	:features_attributes => [[:id,:property_bhk],:property_floors,:property_facing,
           	:property_carparking,:property_events,:property_libroom,:property_fitcenter,:property_spa])

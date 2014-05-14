@@ -8,73 +8,78 @@
         - @property.errors.full_messages.each do |msg|
           %li= msg
   -#%br
-  .row
-    .col-sm-2
-    .col-sm-8#myDiv
-      %h2 Search Properties In India
-      .row
-        .col-sm-6.col-xs-2
-          %br
-          .btn-group{"data-toggle" => "buttons-radio"}
-            = f.radio_button :property_type, "Residential", :id=>"first",:style=>"display:none;"  
-            %label.btn.btn-primary{for: "Residential"} Residential
-            = f.radio_button :property_type, "Commercial", :id=>"first", :style=>"display:none;"
-            %label.btn.btn-primary{for: "Commercial"} Commercial
-            = f.radio_button :property_type, "Land", :id=>"first", :style=>"display:none;"  
-            %label.btn.btn-primary{for: "Land"} Land
-            = f.radio_button :property_type, "RentLease", :id=>"first", :style=>"display:none;"
-            %label.btn.btn-primary{for: "RentLease"} Rent/Lease
-        .col-xs-3.col-md-3
+  .col-xs-12.col-sm-12#myDiv2
+    %h2 List Your Property
+    .col-xs-6.col-sm-6  
+      .col-xs-12.col-sm-12
+        .btn-group{"data-toggle" => "buttons-radio"}
+          = f.radio_button :property_type, "Residential",:style=>"display:none;"
+          %label.btn.btn-primary{for: "Residential", :id=>"first"} Residential
+          = f.radio_button :property_type, "Commercial",:style=>"display:none;"
+          %label.btn.btn-primary{for: "Commercial",:id=>"second"} Commercial
+          = f.radio_button :property_type, "Land", :style=>"display:none;"  
+          %label.btn.btn-primary{for: "Land",:id=>"third"} Land
+          = f.radio_button :property_type, "RentLease", :style=>"display:none;"
+          %label.btn.btn-primary{for: "RentLease",:id=>"four"} Rent/Lease
+      .col-xs-12.col-sm-12
+        .col-xs-3.col-sm-3 
+          %label{for: " Property Type Code"} Property
+          = f.select :property_type_code, options_for_select([["Select One"], ["Inependent House"], ["Apartment"], ["Villa"], ["Land"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control",:id => "mySelect"
+        .col-xs-3.col-sm-3 
           %label{for: "Location"} Location
-          = f.select :property_type, options_for_select([["Select One"], ["Cell"], ["Work"], ["Office"], ["Home"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
+          = f.select :property_location, options_for_select([["Select One"], ["Hyderabad"], ["Chennai"], ["Banglore"], ["Delhi"], ["Mumbai"],["Kolkata"],["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+        .col-xs-3.col-sm-3 
           %label{for: "Locality"} Locality
-          = f.select :property_type, options_for_select([["Select One"], ["Cell"], ["Work"], ["Office"], ["Home"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-      .row
-        .col-xs-3.col-md-3
-          %label{for: "RentLease"} Property Type
-          = f.select :property_type, options_for_select([["Select One"], ["Cell"], ["Work"], ["Office"], ["Home"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
+          = f.select :property_locality, options_for_select([["KukatPally"], ["Hi-Tech City"], ["Jubilee Hills"],["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+        .col-xs-3.col-sm-3 
           %label{for: "MinPrice"} MinPrice
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
+          -#= f.label "semester", :class => 'col-sm-2 control-label'
+          = f.text_field :property_min_price, :class => "form-control"
+      .col-xs-12.col-sm-12
+        .col-xs-3.col-sm-3 
           %label{for: "MaxPrice"} MaxPrice
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control" 
-        .col-xs-3.col-md-3
-          %label{for: "AreaMeasure"} AreaMeasure
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
-      .row
-        .col-xs-3.col-md-3
-          %label{for: "Bhk"} Bhk
-          = f.select :property_type, options_for_select([["Select One"], ["Cell"], ["Work"], ["Office"], ["Home"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Floors"} Floors
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Facing"} Facing
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control" 
-        .col-xs-3.col-md-3 
-          %label{for: "CarParking"} CarParking
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
-      .row
-        .col-xs-3.col-md-3
-          %label{for: "Bhk"} Events Room
-          = f.select :property_type, options_for_select([["Select One"], ["Cell"], ["Work"], ["Office"], ["Home"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Floors"} Library Room
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Facing"} Fitness Center
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control" 
-        .col-xs-3.col-md-3 
-          %label{for: "CarParking"} Spa
-          = f.select :property_type, options_for_select([['plots'],['apartments'],['independent houses']]), { :include_blank=>true },:class=>"form-control"
-      .row
-        .pull-right.text-muted
+          -#= f.label "semester", :class => 'col-sm-2 control-label'
+          = f.text_field :property_max_price, :class => "form-control"
+        .col-xs-3.col-sm-3 
+          %label{for: "MinArea"} Area
+          = f.text_field :property_area_min, :class => "form-control"
+        .col-xs-3.col-sm-3 
+          %label{for: "Measure"} Measure
+          = f.select :property_area_measure, options_for_select([['Sq.Ft.'],['Sq.Yards'],['Sq.Meter'],['Acres'],['Cents'],['Hectares']]), { :include_blank=>true },:class=>"form-control"
+        .col-xs-3.col-sm-3 
           .form-group
-            = f.submit "Search", :class => 'btn btn-primary'
+            -#= f.submit "Search", :class => 'btn btn-primary'
             = raw("<i class = 'fa fa-search fa-4x'></i>")
-          
-    .col-sm-2  
-  %br
-  %br
+      .col-xs-12.col-sm-12
+
+    .col-xs-6.col-sm-6
+      %br
+      = f.fields_for:features do |f_form|   
+        .col-xs-12.col-sm-12
+          .col-xs-3.col-sm-3 
+            %label{for: "BHK"} BHK
+            = f_form.select :property_bhk, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control" ,:id =>"mySelect_Bhk"
+          .col-xs-3.col-sm-3 
+            %label{for: "Floors"} Floors
+            = f_form.select :property_floors, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]]), { :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-sm-3 
+            %label{for: "Facing"} Facing
+            = f_form.select :property_facing, options_for_select([['East'],['West'],['South'],['North']]), { :include_blank=>true },:class=>"form-control" 
+          .col-xs-3.col-sm-3  
+            %label{for: "CarParking"} CarParking
+            = f_form.select :property_carparking, options_for_select([['1'],['2'],['3']]), { :include_blank=>true },:class=>"form-control"
+        .col-xs-12.col-sm-12
+          .col-xs-3.col-sm-3 
+            %label{for: "Events Room"} Events Room
+            = f_form.select :property_events, options_for_select([["Yes"], ["No"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-sm-3 
+            %label{for: " Library Room"} Library Room
+            = f_form.select :property_libroom, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
+          .col-xs-3.col-sm-3 
+            %label{for: "Fitness Center"} Fitness Center
+            = f_form.select :property_fitcenter, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control" 
+          .col-xs-3.col-sm-3 
+            %label{for: "Spa"} Spa
+            = f_form.select :property_spa, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
+        .col-xs-12.col-sm-12   
+%br
