@@ -53,6 +53,8 @@ gem 'carrierwave'
 gem 'rails3-jquery-autocomplete'
 gem 'jquery-ui-rails', '4.1.0'
 gem 'jquery.fileupload-rails'
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
 
 #STYLE-Bootstrap
 gem 'bootstrap-sass', '~> 3.0.3.0'
