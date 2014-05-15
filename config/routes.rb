@@ -19,6 +19,7 @@ Pms::Application.routes.draw do
       get "listproperty"
       get "test"
       get "testfile"
+      get "sell_requests"  
       
     end
   end
