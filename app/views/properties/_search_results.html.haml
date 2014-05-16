@@ -12,24 +12,25 @@
               = raw "<strong class = 'custom-heading'> #{property.property_title}</strong> "
               %br
             #font_color5  
-              = property.property_locality
+              = property.property_locality + ','
               = property.property_location 
+              = property.features.first.property_facing 
               %br
-              - (@features = Feature.all).each do |feature|
-                #specification-list
-                  = feature.property_bhk.to_s + "Bhk"
-                  = feature.property_floors
-                  = feature.property_facing
+            #specification-list
+              = property.features.first.property_bhk.to_s + " Bhk "
+            #specification-list
+              = property.property_area_min.to_s+" "+property.property_area_measure
+            #specification-list
+              = "Facing: "+  property.features.first.property_facing
             #property_desc
             = property.property_description
-           
           
           .col-sm-4  
             #font_color
               = raw "<strong class = 'custom-heading'> #{property.property_max_price.to_s +  'Rs/-' }</strong> "
               %br
-            #font_color6  
-              = property.property_area_measure
+            #font_color6
+              
         .col-sm-12
           .col-sm-3
             STATUS
@@ -42,10 +43,11 @@
             = property.created_at.strftime("%B, %d, %Y")
           .col-sm-5
             = raw "<strong >By:</strong>"
-            = property.property_owner
+
+            =  property.user.username
           .col-sm-4
             = raw "<strong >Instant Call Back:</strong>"
-            9989784352
+            =  property.user.mobile
       #hr
 .pul-right
   = will_paginate @properties

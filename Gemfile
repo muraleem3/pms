@@ -66,3 +66,8 @@ gem 'font-awesome-sass'
 group :development, :test do 
 	gem 'rails_12factor'
 end
+
+#
+gem "geocoder"
+gem 'gmaps4rails', '2.0.3'
+gem 'gon'

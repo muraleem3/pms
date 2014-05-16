@@ -92,10 +92,9 @@
             = f_form.select :property_spa, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
         .col-xs-12.col-sm-12
           .form-group
-            .col-xs-12.col-sm-12
-              = f.label "Image", :class => 'col-sm-2 control-label'
-            .col-xs-12.col-sm-12
-              = f.text_area :property_title, :class => 'form-control', :style=>"background-color:#2FA4E7;height:120px;width:120px;"
-            .col-xs-12.col-sm-12
-              = f.submit "Upload", :class => 'btn btn-primary'      
+            .col-xs-12.col-sm-12  
+              .container#container_displayimage
+                <img id="myImg" src="#" alt="your image", style="width:160px; height:120px;"> 
+                -##imgdiv{:style => "position:fixed;bottom:0;left:0;\n     background:lightgray;width:50%;"}
+                = f.file_field :avatar
 %br

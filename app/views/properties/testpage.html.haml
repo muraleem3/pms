@@ -1,100 +1,19 @@
-= form_for @property, :html => { :class => "form-horizontal", :role => "form"} do |f|
-  - if @property.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@property.errors.count, "error")
-        prohibited this from being saved:
-      %ul
-        - @property.errors.full_messages.each do |msg|
-          %li= msg
-  -#%br
-  .row
-    .col-sm-2
-    .col-sm-8#myDiv
-      %h2 List Your Property
-      .row
-        .col-sm-6.col-xs-2
-          %br
-          .btn-group{"data-toggle" => "buttons-radio"}
-            = f.radio_button :property_type, "Residential", :id=>"first",:style=>"display:none;"  
-            %label.btn.btn-primary{for: "Residential"} Residential
-            = f.radio_button :property_type, "Commercial", :id=>"first", :style=>"display:none;"
-            %label.btn.btn-primary{for: "Commercial"} Commercial
-            = f.radio_button :property_type, "Land", :id=>"first", :style=>"display:none;"  
-            %label.btn.btn-primary{for: "Land"} Land
-            = f.radio_button :property_type, "RentLease", :id=>"first", :style=>"display:none;"
-            %label.btn.btn-primary{for: "RentLease"} Rent/Lease
-        .col-xs-3.col-md-3
-          %label{for: "Location"} Location
-          = f.select :property_location, options_for_select([["Select One"], ["Hyderabad"], ["Chennai"], ["Banglore"], ["Delhi"], ["Mumbai"],["Kolkata"],["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "Locality"} Locality
-          = f.select :property_locality, options_for_select([["KukatPally"], ["Hi-Tech City"], ["Jubilee Hills"],["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-      .row
-        .col-xs-3.col-md-3
-          %label{for: " Property Type Code"} Property Type
-          = f.select :property_type_code, options_for_select([["Select One"], ["Inependent House"], ["Apartment"], ["Villa"], ["Land"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-        .col-xs-3.col-md-3
-          %label{for: "MinPrice"} MinPrice
-          -#= f.label "semester", :class => 'col-sm-2 control-label'
-          = f.text_field :property_min_price, :class => "form-control"
-        .col-xs-3.col-md-3
-          %label{for: "MaxPrice"} MaxPrice
-          -#= f.label "semester", :class => 'col-sm-2 control-label'
-          = f.text_field :property_max_price, :class => "form-control"
-        .col-xs-3.col-md-3
-          %label{for: "AreaMeasure"} AreaMeasure
-          = f.select :property_area_measure, options_for_select([['Sq.Ft.'],['Sq.Yards'],['Sq.Meter'],['Acres'],['Cents'],['Hectares']]), { :include_blank=>true },:class=>"form-control"
-      .row 
-        = f.fields_for:features do |f_form|       
-          .row  
-            .col-xs-3.col-md-3
-              %label{for: "BHK"} BHK
-              = f_form.select :property_bhk, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-            .col-xs-3.col-md-3
-              %label{for: "Floors"} Floors
-              = f_form.select :property_floors, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]]), { :include_blank=>true },:class=>"form-control"
-            .col-xs-3.col-md-3
-              %label{for: "Facing"} Facing
-              = f_form.select :property_facing, options_for_select([['East'],['West'],['South'],['North']]), { :include_blank=>true },:class=>"form-control" 
-            .col-xs-3.col-md-3 
-              %label{for: "CarParking"} CarParking
-              = f_form.select :property_carparking, options_for_select([['1'],['2'],['3']]), { :include_blank=>true },:class=>"form-control"
-          .row
-            .col-xs-3.col-md-3
-              %label{for: "Events Room"} Events Room
-              = f_form.select :property_events, options_for_select([["Yes"], ["No"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
-            .col-xs-3.col-md-3
-              %label{for: " Library Room"} Library Room
-              = f_form.select :property_libroom, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
-            .col-xs-3.col-md-3
-              %label{for: "Fitness Center"} Fitness Center
-              = f_form.select :property_fitcenter, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control" 
-            .col-xs-3.col-md-3 
-              %label{for: "Spa"} Spa
-              = f_form.select :property_spa, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
-      .row
-        .col-xs-6.col-md-6
-          .form-group
-            = f.label "Title", :class => 'col-sm-2 control-label'
-            .col-sm-12
-              = f.text_field :property_title, :class => 'form-control'
-          .form-group
-            = f.label "Description", :class => 'col-sm-2 control-label'
-            .col-sm-12
-              = f.text_area :property_description, :class => 'form-control'
-          .form-group
-            .col-sm-12
-              = f.submit "Create", :class => 'btn btn-primary'
-              = link_to 'Back', properties_path,:class => 'btn btn-primary'
-        .col-xs-4.col-md-4
-          .col-sm-6
-            .form-group
-              = f.label "Image", :class => 'col-sm-2 control-label'
-              %br
-              = f.text_area :property_title, :class => 'form-control', :style=>"background-color:#2FA4E7;height:120px;width:120px;"
-            .col-sm-2
-              = f.submit "Upload", :class => 'btn btn-primary'
-    .col-sm-2  
-  %br
-  %br
+
+hi
+hi
+/ Button trigger modal
+%button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+  Launch demo modal
+/ Modal
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Modal title
+        = render "shared/gmap"
+      .modal-body
+        
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-primary{type: "button"} Save changes

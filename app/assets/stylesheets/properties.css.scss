@@ -61,3 +61,29 @@
 #myDiv2 p {
   padding:4px; 
 }
+
+#myDivRequests {
+  border:2px solid #0094ff;
+  -webkit-border-top-left-radius:6px;
+  -webkit-border-top-right-radius:6px;
+  -moz-border-radius-topleft:6px;
+  -moz-border-radius-topright:6px;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  width:66%;
+  font-size:12pt; /* or whatev\er */
+  //height:500px;
+}
+#myDivRequests h2 {
+  text-align:center;
+  padding:4px;
+  color:#fff;
+  margin:0;
+  background-color:#0094ff;
+  font-size:21pt; /* or whatever */
+}
+#myDivRequests   p {
+  padding:4px; 
+}
+
+#myModal .modal-body {height: 500px;width:500px;overflow: visible;}

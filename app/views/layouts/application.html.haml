@@ -2,6 +2,7 @@
 %html
   %head
     %title Property
+    = include_gon
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
@@ -14,5 +15,4 @@
         %p.alert= alert
         = yield
       .row
-        = render  "shared/footer.html"
-  
+        = render  "shared/footer.html"  

@@ -19,13 +19,32 @@ class PropertiesController < ApplicationController
     @properties = Property.paginate(:page => params[:page], :per_page => 5)
   end
   
-  def testpage
+  def buy_requests
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
   end
-  
+
+  def sell_requests
+    @property = Property.new
+    @property.features << Feature.new
+    @properties = Property.all
+  end
+
+  def testpage
+    @property = Property.new
+    @property.features << Feature.new
+    @properties = Property.all
+    @property = Property.find(37);
+    
+    @map_data = GoogleMapProcessor.build_map_data([@property])
+    gon.gmap_data = @map_data.to_json
+    gon.width = "500px"
+    gon.height = "500px"
+  end
+
   def show
+    #show-Action
   end
   
   def new
@@ -52,10 +71,9 @@ class PropertiesController < ApplicationController
       render :template => '/devise/sessions/new' 
     end 
   end
-
+  
   def edit
     if @property.order_type=="buy"
-      
       render "postrequirement"
     end
     
@@ -67,9 +85,8 @@ class PropertiesController < ApplicationController
   def index
     @properties=Property.all
   end
-  
-  def update
-    
+
+  def update        
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
@@ -88,20 +105,15 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  
 
   def set_property
     @property = Property.find(params[:id])
   end
   
- 
-  
-
+  private
   def property_params	
     params.require(:property).permit(:property_type,:property_type_code,:property_location,
-                                     :property_locality,:property_min_price,:property_max_price,:property_area_min,:property_area_measure,:order_type,
-                                     :property_image_path,:property_title,:property_description,:avatar
+                                     :property_locality,:property_min_price,:property_max_price,:property_area_min,:property_area_measure,:order_type,:property_image_path,:property_title,:property_description,:avatar,
                                      :features_attributes => [[:id,:property_bhk],:property_floors,:property_facing,
                                                               :property_carparking,:property_events,:property_libroom,:property_fitcenter,:property_spa])
   end
