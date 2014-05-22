@@ -1,5 +1,9 @@
 class PropertiesController < ApplicationController
+  include PropertiesHelper
   before_action :set_property, only:[:edit,:show,:update,:destroy]
+
+
+
 
   def listproperty		
     @property = Property.new
@@ -14,9 +18,21 @@ class PropertiesController < ApplicationController
   end
   
   def property_results
+
     @property = Property.new
     @property.features << Feature.new
+    #@properties = Property.all
+    @properties = Property.property_type_codes(params[:filter_by_loc],params[:filter_by_type],params[:filter_by_type_code]) if params[:filter_by_type_code].present?
+    # if params[:filter_by_loc,:filter_by_type,:filter_by_type_code].present?
     @properties = Property.paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def get_properties
+    @property = Property.new
+    @property.features << Feature.new
+    @properties = Property.property_get_properties(params[:property][:property_location],params[:property][:property_type_code])
+    render "property_results"
+   
   end
   
   def buy_requests
@@ -35,11 +51,22 @@ class PropertiesController < ApplicationController
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
-    @property = Property.find(37);
+    @property = Property.find(134);
     
     @map_data = GoogleMapProcessor.build_map_data([@property])
     gon.gmap_data = @map_data.to_json
-    gon.width = "500px"
+    gon.width = "800px"
+    gon.height = "500px"
+  end
+  def testpage1
+    @property = Property.new
+    @property.features << Feature.new
+    @properties = Property.all
+    @property = Property.find(100);
+    
+    @map_data = GoogleMapProcessor.build_map_data([@property])
+    gon.gmap_data = @map_data.to_json
+    gon.width = "800px"
     gon.height = "500px"
   end
 
@@ -79,7 +106,8 @@ class PropertiesController < ApplicationController
     
     if @property.order_type=="sell" 
       render "listproperty"
-    end   
+    end  
+ 
   end
   
   def index

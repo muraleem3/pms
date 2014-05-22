@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 // Handle the case when form was submitted before uploading has finished
-    $(function () {
+$(document ).ready(function() {
     $(":file").change(function () {
         alert("Display image")
             if (this.files && this.files[0]) {
@@ -12,10 +12,11 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
-    });
+    
 
     function imageIsLoaded(e) {
         $('#myImg').attr('src', e.target.result);
     };
+});
 
 

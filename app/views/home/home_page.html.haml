@@ -7,34 +7,34 @@
     .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange"} RESIDENTIAL      
-      = link_to "Independent House", property_results_properties_path, :class => 'customlabel'
+      = link_to "Independent House", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Residential',:filter_by_type_code => 'res_indhouse'), :class => 'customlabel'
       %br
-      = link_to "Apartment", property_results_properties_path, :class => 'customlabel'     
+      = link_to "Apartment", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Residential',:filter_by_type_code => 'res_aptmnt'), :class => 'customlabel'     
       %br
-      = link_to "Independent Villa", property_results_properties_path, :class => 'customlabel'
+      = link_to "Independent Villa", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Residential',:filter_by_type_code => 'res_villa'), :class => 'customlabel'
       %br
-      = link_to "Flat", property_results_properties_path, :class => 'customlabel'
+      = link_to "Flat", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Residential',:filter_by_type_code => 'res_flat'), :class => 'customlabel'
       %br    
-      = link_to "Farm House", property_results_properties_path, :class => 'customlabel'
+      = link_to "Farm House", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Residential',:filter_by_type_code => 'res_fmhouse'), :class => 'customlabel'
       %br
-      = link_to "Other Residential", property_results_properties_path, :class => 'customlabel'
+      = link_to "Other Residential", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Residential',:filter_by_type_code => 'res_other'), :class => 'customlabel'
   .col-sm-6.col-xs-12
     .col-sm-6.col-xs-6
       =image_tag "23.jpg",:id =>"property-logo"     
     .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange"} COMMERCIAL
-      = link_to "Commercial Space", property_results_properties_path, :class => 'customlabel'
+      = link_to "Commercial Space", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Commercial',:filter_by_type_code => 'com_space'), :class => 'customlabel'
       %br       
-      = link_to "Office Space", property_results_properties_path, :class => 'customlabel'
+      = link_to "Office Space", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Commercial',:filter_by_type_code => 'com_office'), :class => 'customlabel'
       %br         
-      = link_to "IT/Software Technology Park", property_results_properties_path, :class => 'customlabel'
+      = link_to "IT/Software Technology Park", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Commercial',:filter_by_type_code => 'com_itpark'), :class => 'customlabel'
       %br       
-      = link_to "Industrial Space", property_results_properties_path, :class => 'customlabel'
+      = link_to "Industrial Space", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Commercial',:filter_by_type_code => 'com_indspace'), :class => 'customlabel'
       %br       
-      = link_to "Warehouse", property_results_properties_path, :class => 'customlabel'
+      = link_to "Warehouse", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Commercial',:filter_by_type_code => 'com_whouse'), :class => 'customlabel'
       %br      
-      = link_to "Hotel/Resort", property_results_properties_path, :class => 'customlabel'
+      = link_to "Hotel/Resort", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Commercial',:filter_by_type_code => 'com_hotel'), :class => 'customlabel'
 %br                
 .row      
   .col-sm-6.col-xs-12
@@ -43,31 +43,31 @@
     .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange"} LAND
-      = link_to "Residential Land", property_results_properties_path, :class => 'customlabel'
+      = link_to "Residential Land", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Land',:filter_by_type_code => 'lnd_reslnd'), :class => 'customlabel'
       %br       
-      = link_to "Commercial Land", property_results_properties_path, :class => 'customlabel'
+      = link_to "Commercial Land", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Land',:filter_by_type_code => 'lnd_comland'), :class => 'customlabel'
       %br        
-      = link_to "Industrial Land", property_results_properties_path, :class => 'customlabel'
+      = link_to "Industrial Land", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Land',:filter_by_type_code => 'lnd_indland'), :class => 'customlabel'
       %br
-      = link_to "Agricultural Land", property_results_properties_path, :class => 'customlabel'
+      = link_to "Agricultural Land", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Land',:filter_by_type_code => 'lnd_agriland'), :class => 'customlabel'
       %br       
-      = link_to "Farm House Land", property_results_properties_path, :class => 'customlabel'
+      = link_to "Farm House Land", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Land',:filter_by_type_code => 'lnd_fmhouse'), :class => 'customlabel'
       %br       
-      = link_to "Land", property_results_properties_path, :class => 'customlabel' 
+      = link_to "Land", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'Land',:filter_by_type_code => 'lnd_land'), :class => 'customlabel' 
   .col-sm-6.col-xs-12
     .col-sm-6.col-xs-6
       =image_tag "46.jpg",:id =>"property-logo"   
     .col-sm-6.col-xs-6
       %h4{align: "left"}
         %font{color: "orange" } RENT/LEASE
-      = link_to "Apartments/Flats", property_results_properties_path, :class => 'customlabel'
+      = link_to "Apartments/Flats", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'RentLease',:filter_by_type_code => 'rl_aptmnt'), :class => 'customlabel'
       %br       
-      = link_to "Individual Houses", property_results_properties_path, :class => 'customlabel'
+      = link_to "Individual Houses", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'RentLease',:filter_by_type_code => 'rl_indhouse'), :class => 'customlabel'
       %br          
-      = link_to "Villas", property_results_properties_path, :class => 'customlabel'
+      = link_to "Villas", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'RentLease',:filter_by_type_code => 'rl_villas'), :class => 'customlabel'
       %br        
-      = link_to "Serviced Apartments", property_results_properties_path, :class => 'customlabel'
+      = link_to "Serviced Apartments", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'RentLease',:filter_by_type_code => 'rl_saptmnt'), :class => 'customlabel'
       %br
-      = link_to "Office Space", property_results_properties_path, :class => 'customlabel'
+      = link_to "Office Space", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'RentLease',:filter_by_type_code => 'rl_office'), :class => 'customlabel'
       %br
-      = link_to "Industrial space", property_results_properties_path, :class => 'customlabel'
+      = link_to "Industrial space", property_results_properties_path(:filter_by_loc => 'Hyderabad',:filter_by_type => 'RentLease',:filter_by_type_code => 'rl_indspace'), :class => 'customlabel'

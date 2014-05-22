@@ -13,24 +13,30 @@
     .col-xs-6.col-sm-6  
       .col-xs-12.col-sm-12
         .btn-group{"data-toggle" => "buttons-radio"}
-          = f.radio_button :property_type, "Residential",:style=>"display:none;"
-          %label.btn.btn-primary{for: "Residential", :id=>"first"} Residential
-          = f.radio_button :property_type, "Commercial",:style=>"display:none;"
-          %label.btn.btn-primary{for: "Commercial",:id=>"second"} Commercial
-          = f.radio_button :property_type, "Land", :style=>"display:none;"  
-          %label.btn.btn-primary{for: "Land",:id=>"third"} Land
-          = f.radio_button :property_type, "RentLease", :style=>"display:none;"
-          %label.btn.btn-primary{for: "RentLease",:id=>"four"} Rent/Lease
+          = f.hidden_field :property_type, :id => "propertyType"
+          
+          %input#rfirst{name: "propertyRadioGroup", type: "radio", value: "Residential",style: "display:none"}          
+          %label.btn.btn-primary{for: "Residential", :id=>"first",:class => "myPropertyType"} Residential
+
+          %input#rsecond{name: "propertyRadioGroup", type: "radio", value: "Commercial",style: "display:none"}         
+          %label.btn.btn-primary{for: "Commercial",:id=>"second",:class => "myPropertyType"} Commercial
+
+          %input#rthird{name: "propertyRadioGroup", type: "radio", value: "Land",style: "display:none"}         
+          %label.btn.btn-primary{for: "Land",:id=>"third",:class => "myPropertyType"} Land
+
+          %input#rfour{name: "propertyRadioGroup", type: "radio", value: "RebtLease",style: "display:none"}         
+          %label.btn.btn-primary{for: "RentLease",:id=>"four",:class => "myPropertyType"} Rent/Lease
+
       .col-xs-12.col-sm-12
         .col-xs-3.col-sm-3 
           %label{for: " Property Type Code"} Property
-          = f.select :property_type_code, options_for_select([["Select One"], ["Inependent House"], ["Apartment"], ["Villa"], ["Land"], ["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control",:id => "mySelect"
+          = f.select(:property_type_code,([["Select One"],["#{get_selected_propertytype(f.object.property_type_code)}",f.object.property_type_code]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_type_code}"]},:class=>"form-control",:id => "mySelect")
         .col-xs-3.col-sm-3 
-          %label{for: "Location"} Location
-          = f.select :property_location, options_for_select([["Select One"], ["Hyderabad"], ["Chennai"], ["Banglore"], ["Delhi"], ["Mumbai"],["Kolkata"],["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+          %label{for: "Location"} Location       
+          = f.select(:property_location,([["Select One"],["#{get_selected_location(f.object.property_location)}",f.object.property_location]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_location}"]},:class=>"form-control",:id => "myLocation")
         .col-xs-3.col-sm-3 
-          %label{for: "Locality"} Locality
-          = f.select :property_locality, options_for_select([["KukatPally"], ["Hi-Tech City"], ["Jubilee Hills"],["Other"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+          %label{for: "Locality"} Locality 
+          = f.select(:property_locality,([["Select One"],["#{get_selected_locality(f.object.property_locality)}",f.object.property_locality]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_locality}"]},:class=>"form-control",:id => "myLocality")
         .col-xs-3.col-sm-3 
           %label{for: "MinPrice"} MinPrice
           -#= f.label "semester", :class => 'col-sm-2 control-label'
@@ -45,7 +51,7 @@
           = f.text_field :property_area_min, :class => "form-control"
         .col-xs-3.col-sm-3 
           %label{for: "Measure"} Measure
-          = f.select :property_area_measure, options_for_select([['Sq.Ft.'],['Sq.Yards'],['Sq.Meter'],['Acres'],['Cents'],['Hectares']]), { :include_blank=>true },:class=>"form-control"
+          = f.select(:property_area_measure,([["Select One"],["#{get_selected_area_measure(f.object.property_area_measure)}",f.object.property_area_measure]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_area_measure}"]},:class=>"form-control",:id => "myArea")
       .col-xs-12.col-sm-12
         .form-group
           = f.label "Title", :class => 'col-sm-2 control-label'
@@ -58,7 +64,7 @@
         .form-group
           .col-xs-12.col-sm-12
             = f.hidden_field :order_type,:value => "sell"
-            = f.submit "Create", :class => 'btn btn-primary'
+            = f.submit "List", :class => 'btn btn-primary'
             = link_to 'Back', properties_path,:class => 'btn btn-primary'
 
     .col-xs-6.col-sm-6
@@ -66,35 +72,39 @@
       = f.fields_for:features do |f_form|   
         .col-xs-12.col-sm-12
           .col-xs-3.col-sm-3 
-            %label{for: "BHK"} BHK
-            = f_form.select :property_bhk, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control" ,:id =>"mySelect_Bhk"
+            %label{for: "BHK"} BHK           
+            = f_form.select(:property_bhk,([["Select One"],["#{get_selected_bhk(f_form.object.property_bhk)}",f_form.object.property_bhk]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_bhk}"]},:class=>"form-control",:id => "myBhk")
           .col-xs-3.col-sm-3 
             %label{for: "Floors"} Floors
-            = f_form.select :property_floors, options_for_select([["1"], ["2"], ["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"]]), { :include_blank=>true },:class=>"form-control"
+            = f_form.select(:property_floors,([["Select One"],["#{get_selected_floors(f_form.object.property_floors)}",f_form.object.property_floors]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_floors}"]},:class=>"form-control",:id => "myFloors")
           .col-xs-3.col-sm-3 
             %label{for: "Facing"} Facing
-            = f_form.select :property_facing, options_for_select([['East'],['West'],['South'],['North']]), { :include_blank=>true },:class=>"form-control" 
+            = f_form.select(:property_facing,([["Select One"],["#{get_selected_facing(f_form.object.property_facing)}",f_form.object.property_facing]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_facing}"]},:class=>"form-control",:id => "myFacing")
           .col-xs-3.col-sm-3  
             %label{for: "CarParking"} CarParking
-            = f_form.select :property_carparking, options_for_select([['1'],['2'],['3']]), { :include_blank=>true },:class=>"form-control"
+            = f_form.select(:property_carparking,([["Select One"],["#{get_selected_carparking(f_form.object.property_carparking)}",f_form.object.property_carparking]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_carparking}"]},:class=>"form-control",:id => "myCarParking")            
         .col-xs-12.col-sm-12
           .col-xs-3.col-sm-3 
             %label{for: "Events Room"} Events Room
-            = f_form.select :property_events, options_for_select([["Yes"], ["No"]],:disabled => ["Select One"]),{ :include_blank=>true },:class=>"form-control"
+            = f_form.select(:property_events,([["Select One"],["#{get_selected_yesorno(f_form.object.property_events)}",f_form.object.property_events.to_i]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_events.to_i}"]},:class=>"form-control",:id => "myEvents")  
           .col-xs-3.col-sm-3 
             %label{for: " Library Room"} Library Room
-            = f_form.select :property_libroom, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
+            = f_form.select(:property_libroom,([["Select One"],["#{get_selected_yesorno(f_form.object.property_libroom)}",f_form.object.property_libroom.to_i]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_libroom.to_i}"]},:class=>"form-control",:id => "myLibRoom") 
           .col-xs-3.col-sm-3 
             %label{for: "Fitness Center"} Fitness Center
-            = f_form.select :property_fitcenter, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control" 
+            = f_form.select(:property_fitcenter,([["Select One"],["#{get_selected_yesorno(f_form.object.property_fitcenter)}",f_form.object.property_fitcenter.to_i]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_fitcenter.to_i}"]},:class=>"form-control",:id => "myFitCenter")  
           .col-xs-3.col-sm-3 
             %label{for: "Spa"} Spa
-            = f_form.select :property_spa, options_for_select([["Yes"], ["No"]]), { :include_blank=>true },:class=>"form-control"
+            = f_form.select(:property_spa,([["Select One"],["#{get_selected_yesorno(f_form.object.property_spa)}",f_form.object.property_spa.to_i]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f_form.object.property_spa.to_i}"]},:class=>"form-control",:id => "mySpa")  
         .col-xs-12.col-sm-12
-          .form-group
-            .col-xs-12.col-sm-12  
-              .container#container_displayimage
-                <img id="myImg" src="#" alt="your image", style="width:160px; height:120px;"> 
-                -##imgdiv{:style => "position:fixed;bottom:0;left:0;\n     background:lightgray;width:50%;"}
-                = f.file_field :avatar
+          %br
+          .col-xs-1.col-sm-1
+          .col-xs-4.col-sm-4#img-height  
+            - if f.object.avatar?
+              = image_tag f.object.avatar_url, :style => "width:100%; height:100%;"
+              = f.file_field :avatar
+            - else  
+              <img id="myImg" src="#" alt="your image", style="width:100%; height:100%;"> 
+              = f.file_field :avatar                
+
 %br

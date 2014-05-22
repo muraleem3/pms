@@ -19,7 +19,9 @@ Pms::Application.routes.draw do
       get "listproperty"
       get "buy_requests"
       get "sell_requests"
-      get "testpage"
+      get "testpage" 
+      get "testpage1"     
+      post "get_properties"
       
     end
   end

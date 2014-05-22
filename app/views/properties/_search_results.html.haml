@@ -13,8 +13,7 @@
               %br
             #font_color5  
               = property.property_locality + ','
-              = property.property_location 
-              = property.features.first.property_facing 
+              = property.property_location
               %br
             #specification-list
               = property.features.first.property_bhk.to_s + " Bhk "
@@ -25,11 +24,17 @@
             #property_desc
             = property.property_description
           
-          .col-sm-4  
+          .col-sm-3  
             #font_color
               = raw "<strong class = 'custom-heading'> #{property.property_max_price.to_s +  'Rs/-' }</strong> "
               %br
             #font_color6
+            #Property_map
+            %br
+            = raw("<i class = 'fa fa-map-marker fa-2x'></i>")
+            / Button trigger modal
+            %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+              View Locality
               
         .col-sm-12
           .col-sm-3
@@ -50,8 +55,15 @@
             =  property.user.mobile
       #hr
 .pul-right
-  = will_paginate @properties
 
 
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4#myModalLabel.modal-title Modal title
+        = render "shared/gmap" 
+           
+             
 
-
+        

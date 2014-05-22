@@ -9,7 +9,6 @@
         = link_to "Login", user_session_path, :data => {:method => :post}
         %span ||
         = link_to "REGISTER",new_user_registration_path
-        %span ||
       - if current_user.present?
         = link_to "Log out", destroy_user_session_path, :data => {:method => :delete}
         %span || 
