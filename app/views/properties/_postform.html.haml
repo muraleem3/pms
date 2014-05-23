@@ -9,12 +9,12 @@
           %li= msg
   -#%br
   .col-xs-12.col-sm-12#myDiv2
-    %h2 Post Your Property
+    %h2 Post Your Requirement
     .col-xs-6.col-sm-6  
       .col-xs-12.col-sm-12
         .btn-group{"data-toggle" => "buttons-radio"}
           = f.hidden_field :property_type, :id => "propertyType"
-
+          
           %input#rfirst{name: "propertyRadioGroup", type: "radio", value: "Residential",style: "display:none"}          
           %label.btn.btn-primary{for: "Residential", :id=>"first",:class => "myPropertyType"} Residential
 
@@ -63,7 +63,7 @@
             = f.text_area :property_description, :class => 'form-control'
         .form-group
           .col-xs-12.col-sm-12
-            = f.hidden_field :order_type,:value => "buy "
+            = f.hidden_field :order_type,:value => "buy"
             = f.submit "Post", :class => 'btn btn-primary'
             = link_to 'Back', properties_path,:class => 'btn btn-primary'
 

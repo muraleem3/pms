@@ -3,8 +3,6 @@ class PropertiesController < ApplicationController
   before_action :set_property, only:[:edit,:show,:update,:destroy]
 
 
-
-
   def listproperty		
     @property = Property.new
     @property.features << Feature.new
@@ -22,47 +20,63 @@ class PropertiesController < ApplicationController
     @property = Property.new
     @property.features << Feature.new
     #@properties = Property.all
-    @properties = Property.property_type_codes(params[:filter_by_loc],params[:filter_by_type],params[:filter_by_type_code]) if params[:filter_by_type_code].present?
+    @properties = Property.type_codes("sell",params[:filter_by_loc],params[:filter_by_type],params[:filter_by_type_code]).paginate(:page => params[:page], :per_page => 5) if params[:filter_by_type_code].present?
     # if params[:filter_by_loc,:filter_by_type,:filter_by_type_code].present?
-    @properties = Property.paginate(:page => params[:page], :per_page => 5)
+    #@properties = Property.paginate(:page => params[:page], :per_page => 5)
   end
 
   def get_properties
     @property = Property.new
-    @property.features << Feature.new
-    @properties = Property.property_get_properties(params[:property][:property_location],params[:property][:property_type_code])
-    render "property_results"
-   
+    @property.features << Feature.new    
+
+    @properties = Property.where(get_properties_query).paginate(:page => params[:page], :per_page => 5)
+    #@properties = Property.property_get_properties("sell",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
+    render "property_results"   
   end
-  
+
   def buy_requests
     @property = Property.new
     @property.features << Feature.new
-    @properties = Property.all
+    @properties = Property.get_buy_requests("buy").paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def get_buy_requests
+    @property = Property.new
+    @property.features << Feature.new
+    @properties = Property.property_get_buy_requests("buy",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
+    render "buy_requests"   
   end
 
   def sell_requests
     @property = Property.new
     @property.features << Feature.new
-    @properties = Property.all
+    @properties = Property.get_sell_requests("sell").paginate(:page => params[:page], :per_page => 5).paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def get_sell_requests
+    @property = Property.new
+    @property.features << Feature.new
+    @properties = Property.property_get_sell_requests("sell",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
+    render "sell_requests"   
   end
 
   def testpage
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
-    @property = Property.find(134);
+    @property = Property.find(100);
     
     @map_data = GoogleMapProcessor.build_map_data([@property])
     gon.gmap_data = @map_data.to_json
     gon.width = "800px"
     gon.height = "500px"
   end
+
   def testpage1
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
-    @property = Property.find(100);
+    @property = Property.find(141);
     
     @map_data = GoogleMapProcessor.build_map_data([@property])
     gon.gmap_data = @map_data.to_json
@@ -139,11 +153,12 @@ class PropertiesController < ApplicationController
   end
   
   private
-  def property_params	
-    params.require(:property).permit(:property_type,:property_type_code,:property_location,
+
+    def property_params	
+      params.require(:property).permit(:property_type,:property_type_code,:property_location,
                                      :property_locality,:property_min_price,:property_max_price,:property_area_min,:property_area_measure,:order_type,:property_image_path,:property_title,:property_description,:avatar,
                                      :features_attributes => [[:id,:property_bhk],:property_floors,:property_facing,
                                                               :property_carparking,:property_events,:property_libroom,:property_fitcenter,:property_spa])
-  end
+    end
 
 end

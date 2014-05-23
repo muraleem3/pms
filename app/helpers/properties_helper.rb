@@ -132,13 +132,13 @@ module PropertiesHelper
     end
   end
   def get_selected_facing(facing_code)
-    if facing_code == 'east'
+    if facing_code == 'EAST'
       return 'EAST'
-    elsif  facing_code == 'west'  
+    elsif  facing_code == 'WEST'  
       return 'WEST'
-    elsif  facing_code == 'south'
+    elsif  facing_code == 'SOUTH'
       return 'SOUTH'
-    elsif  facing_code == 'north'
+    elsif  facing_code == 'NORTH'
       return 'NORTH'
     end
   end
@@ -152,9 +152,9 @@ module PropertiesHelper
     end
   end
   def get_selected_yesorno(boolean_code)
-    if boolean_code == 1
+    if boolean_code =='YES'
       return 'YES'
-    elsif boolean_code == 2
+    elsif boolean_code == 'NO'
       return 'NO'
     end
   end
@@ -178,6 +178,36 @@ module PropertiesHelper
     elsif locality_code == 'Malleshwaram'
       return 'Malleshwaram'        
     end
+  end
+
+  #To Get a Property Query
+  def get_properties_query
+    check="false"
+    if params[:property][:property_type] != 0 && params[:property][:property_type] != "NILL"  && params[:property][:property_type].present?
+      if check=="true"
+        s1=s1+" AND "+'"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
+      else
+        s1='"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
+        check="true"
+      end
+    end
+    if params[:property][:property_type_code] != 0 && params[:property][:property_type_code] != "NILL"  && params[:property][:property_type_code].present?
+      if check=="true"
+        s1=s1+" AND "+'"properties"."property_type_code" = '+"'#{params[:property][:property_type_code]}'"
+      else
+        s1='"properties"."property_type_code" = '+"'#{params[:property][:property_type_code]}'"
+        check="true"
+      end
+    end
+    if params[:property][:property_location] != 0 && params[:property][:property_location] != "NILL"  && params[:property][:property_location].present?
+      if check=="true"
+        s1=s1+" AND "+'"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
+      else
+        s1='"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
+        check="true"
+      end
+    end
+    return s1
   end
 
 end

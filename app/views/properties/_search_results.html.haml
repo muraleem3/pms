@@ -1,61 +1,79 @@
 .container#search_results
   .row
-    - @properties.each do |property|
-      .row
-        .col-sm-12
-          .col-sm-3
-            .thumbnail#img_result
-              = image_tag(property.avatar_url, :class => "img-thumbnail")
+    - if @properties.present?
+      - @properties.each do |property|
+        .row
+          .col-sm-12
+            .col-sm-3
+              - if property.order_type != 'buy'
+                .thumbnail#img_result
+                  = image_tag(property.avatar_url, :class => "img-thumbnail")
               
-          .col-sm-5
-            #font_color1 
-              = raw "<strong class = 'custom-heading'> #{property.property_title}</strong> "
-              %br
-            #font_color5  
-              = property.property_locality + ','
-              = property.property_location
-              %br
-            #specification-list
-              = property.features.first.property_bhk.to_s + " Bhk "
-            #specification-list
-              = property.property_area_min.to_s+" "+property.property_area_measure
-            #specification-list
-              = "Facing: "+  property.features.first.property_facing
-            #property_desc
-            = property.property_description
+            .col-sm-5
+              #font_color1 
+                = raw "<strong class = 'custom-heading'> #{property.property_title}</strong> "
+                %br
+              #font_color5  
+                = property.property_locality + ','
+                = property.property_location
+                %br
+              #specification-list
+                - if (property.features.first.property_bhk != 0 && property.features.first.property_bhk != 'NILL' && property.features.first.property_bhk.present?)
+                  = property.features.first.property_bhk.to_s + " Bhk "
+              #specification-list
+                - if (property.property_area_min != 0 && property.property_area_min != 'NILL' && property.property_area_min.present?)
+                  = property.property_area_min.to_s+" "
+                - if (property.property_area_measure != 0 && property.property_area_measure != 'NILL' && property.property_area_measure.present?)
+                  = property.property_area_measure
+                -else
+                  = "Measurement"  
+              #specification-list
+                - if (property.features.first.property_facing != 0 && property.features.first.property_facing != 'NILL' && property.features.first.property_facing.present?)
+                  = "Facing: "+  property.features.first.property_facing
+              #property_desc
+              = property.property_description
           
-          .col-sm-3  
-            #font_color
-              = raw "<strong class = 'custom-heading'> #{property.property_max_price.to_s +  'Rs/-' }</strong> "
-              %br
-            #font_color6
-            #Property_map
-            %br
-            = raw("<i class = 'fa fa-map-marker fa-2x'></i>")
-            / Button trigger modal
-            %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
-              View Locality
+            .col-sm-3 
+              - if property.order_type != 'buy' 
+                #font_color_sell
+                  = raw "<strong class = 'custom-heading'> #{property.property_max_price.to_s +  'Rs/-' }</strong> "
+              - else
+                #font_color_buy
+                  = raw "<strong class = 'custom-heading'>Min Price #{property.property_min_price.to_s +  'Rs/-' }</strong> "
+                %br
+              #font_color6
+              - if property.order_type != 'buy' 
+                #Property_map
+                %br
+                = raw("<i class = 'fa fa-map-marker fa-2x'></i>")
+                / Button trigger modal
+                %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+                  View Locality
+              - else
+                #font_color_buy
+                  = raw "<strong class = 'custom-heading'>Max Price #{property.property_max_price.to_s +  'Rs/-' }</strong> "
+                %br
               
-        .col-sm-12
-          .col-sm-3
-            STATUS
-          .col-sm-5
+          .col-sm-12
+            .col-sm-3
+              STATUS
+            .col-sm-5
             
-          .col-sm-4
-        .col-sm-12
-          .col-sm-3
-            = raw "<strong >Listed:</strong>"
-            = property.created_at.strftime("%B, %d, %Y")
-          .col-sm-5
-            = raw "<strong >By:</strong>"
+            .col-sm-4
+          .col-sm-12
+            .col-sm-3
+              = raw "<strong >Listed:</strong>"
+              = property.created_at.strftime("%B, %d, %Y")
+            .col-sm-5
+              = raw "<strong >By:</strong>"
 
-            =  property.user.username
-          .col-sm-4
-            = raw "<strong >Instant Call Back:</strong>"
-            =  property.user.mobile
-      #hr
-.pul-right
-
+              =  property.user.username
+            .col-sm-4
+              = raw "<strong >Instant Call Back:</strong>"
+              =  property.user.mobile
+        #hr
+      .pul-right
+        = will_paginate @properties
 
 #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
   .modal-dialog

@@ -1,0 +1,41 @@
+= form_for @property, :html => { :class => "form-horizontal", :role => "form",:method => :post}, :url => get_buy_requests_properties_path( @property ) do |f|
+  - if @property.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@property.errors.count, "error")
+        prohibited this from being saved:
+      %ul
+        - @property.errors.full_messages.each do |msg|
+          %li= msg
+  -#%br
+  .col-xs-2.col-sm-2
+  .col-xs-8.col-sm-8#myDivRequests
+    %h2 Requests
+    .col-xs-12.col-sm-12
+      .col-xs-2.col-sm-2
+      .col-xs-10.col-sm-10
+        .btn-group{"data-toggle" => "buttons-radio"}
+          = f.hidden_field :property_type, :id => "propertyType"
+
+          %input#rfirst{name: "propertyRadioGroup", type: "radio", value: "Residential",style: "display:none"}  
+          %label.btn.btn-primary{for: "Residential", :id=>"first",:class => "myPropertyType"} Residential
+          %input#rsecond{name: "propertyRadioGroup", type: "radio", value: "Commercial",style: "display:none"}   
+          %label.btn.btn-primary{for: "Commercial",:id=>"second",:class => "myPropertyType"} Commercial
+          %input#rthird{name: "propertyRadioGroup", type: "radio", value: "Land",style: "display:none"}
+          %label.btn.btn-primary{for: "Land",:id=>"third",:class => "myPropertyType"} Land
+          %input#rfour{name: "propertyRadioGroup", type: "radio", value: "RentLease",style: "display:none"}
+          %label.btn.btn-primary{for: "RentLease",:id=>"four",:class => "myPropertyType"} Rent/Lease
+    .col-xs-12.col-sm-12
+      .col-xs-2.col-sm-2
+      .col-xs-3.col-sm-3
+        %label{for: "Location"} Location       
+        = f.select(:property_location,([["Select One"],["#{get_selected_location(f.object.property_location)}",f.object.property_location]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_location}"]},:class=>"form-control",:id => "myLocation")
+      .col-xs-3.col-sm-3
+        %label{for: "Locality"} Locality 
+        = f.select(:property_locality,([["Select One"],["#{get_selected_locality(f.object.property_locality)}",f.object.property_locality]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_locality}"]},:class=>"form-control",:id => "myLocality")
+      .col-xs-3.col-sm-3
+        .form-group
+        = raw("<i class = 'fa fa-search fa-3x'></i>")
+        = f.submit "Search", :class => 'btn btn-primary'
+%br
+

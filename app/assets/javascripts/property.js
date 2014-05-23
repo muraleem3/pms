@@ -1,100 +1,6 @@
 $(document ).ready(function() {
     //alert( "ready!" );
-    $("#myLocation").empty();    
-    $("#myLocation").append('<option value=NILL></option>');
-    $("#myLocation").append('<option value=Hyderabad>Hyderabad</option>');
-    $("#myLocation").append('<option value=Chennai>Chennai</option>');
-    $("#myLocation").append('<option value=Banglore>Banglore</option>');
-    $("#myLocation").append('<option value=Mumbai>Mumbai</option>');
-    $("#myLocation").append('<option value=Delhi>Delhi</option>');
-    $("#myLocation").append('<option value=Kolkata>Kolkata</option>');
-    $("#myLocation").append('<option value=Other7>Other</option>');
-
-    $("#myLocality").empty();    
-    $("#myLocality").append('<option value=NILL></option>');
-    $("#myLocality").append('<option value=Kukatpally>Kukatpally</option>');
-    $("#myLocality").append('<option value=Hitech-City>Hitech-City</option>');
-    $("#myLocality").append('<option value=AmeerPet>AmeerPet</option>');
-    $("#myLocality").append('<option value=Guindy>Guindy</option>');
-    $("#myLocality").append('<option value=Velachery>Velachery</option>');
-    $("#myLocality").append('<option value=Tambaram>Tambaram</option>');
-    $("#myLocality").append('<option value=Marathahalli>Marathahalli</option>');
-    $("#myLocality").append('<option value=Whitefield>Whitefield</option>');
-    $("#myLocality").append('<option value=Malleshwaram>Malleshwaram</option>');
     
-
-    $("#myArea").empty();
-    $("#myArea").append('<option value=NILL></option>');
-    $("#myArea").append('<option value=Sq.Ft>Sq.Ft</option>');
-    $("#myArea").append('<option value=Sq.Yards>Sq.Yards</option>');
-    $("#myArea").append('<option value=Sq.Meter>Sq.Meter</option>');
-    $("#myArea").append('<option value=Acres>Acres</option>');
-    $("#myArea").append('<option value=Hectares>Hectares</option>');
-
-    $("#myBhk").empty();
-    $("#myBhk").append('<option value=NILL></option>');
-    $("#myBhk").append('<option value=1>1</option>');
-    $("#myBhk").append('<option value=2>2</option>');
-    $("#myBhk").append('<option value=3>3</option>');
-    $("#myBhk").append('<option value=4>4</option>');
-    $("#myBhk").append('<option value=5>5</option>');
-    $("#myBhk").append('<option value=6>6</option>');
-    $("#myBhk").append('<option value=7>7</option>');
-    $("#myBhk").append('<option value=8>8</option>');
-    $("#myBhk").append('<option value=9>9</option>');
-    $("#myBhk").append('<option value=10>10</option>');
-
-    $("#myFloors").empty();
-    $("#myFloors").append('<option value=NILL></option>');
-    $("#myFloors").append('<option value=1>1</option>');
-    $("#myFloors").append('<option value=2>2</option>');
-    $("#myFloors").append('<option value=3>3</option>');
-    $("#myFloors").append('<option value=4>4</option>');
-    $("#myFloors").append('<option value=5>5</option>');
-    $("#myFloors").append('<option value=6>6</option>');
-    $("#myFloors").append('<option value=7>7</option>');
-    $("#myFloors").append('<option value=8>8</option>');
-    $("#myFloors").append('<option value=9>9</option>');
-    $("#myFloors").append('<option value=10>10</option>');
-
-    $("#myFacing").empty();
-    $("#myFacing").append('<option value=NILL></option>');
-    $("#myFacing").append('<option value=EAST>EAST</option>');
-    $("#myFacing").append('<option value=WEST>WEST</option>');
-    $("#myFacing").append('<option value=SOUTH>SOUTH</option>');
-    $("#myFacing").append('<option value=NORTH>NORTH</option>');
-
-    $("#myCarParking").empty();
-    $("#myCarParking").append('<option value=NILL></option>');
-    $("#myCarParking").append('<option value=1>1</option>');
-    $("#myCarParking").append('<option value=2>2</option>');
-    $("#myCarParking").append('<option value=3>3</option>');
-
-    $("#myEvents").empty();
-    $("#myEvents").append('<option value=NILL></option>');
-    $("#myEvents").append('<option value=Yes>YES</option>');
-    $("#myEvents").append('<option value=No>NO</option>');
-
-    $("#myLibRoom").empty();
-    $("#myLibRoom").append('<option value=NILL></option>');
-    $("#myLibRoom").append('<option value=YES>YES</option>');
-    $("#myLibRoom").append('<option value=NO>NO</option>');
-   
-    $("#myFitCenter").empty();
-    $("#myFitCenter").append('<option value=NILL></option>');
-    $("#myFitCenter").append('<option value=YES>YES</option>');
-    $("#myFitCenter").append('<option value=NO>NO</option>');
-  
-   
-    $("#mySpa").empty();
-    $("#mySpa").append('<option value=NILL></option>');
-    $("#mySpa").append('<option value=1>YES</option>');
-    $("#mySpa").append('<option value=2>NO</option>');
-   
-   
-    
-
-
     // To modify Propery as NotListed
 
     $('#listcheck').click(function () {
@@ -114,10 +20,103 @@ $(document ).ready(function() {
 
 
     //TO pOPULATE cOMMON seLECT tyPES
-    $(".myPropertyType").on('click',function() {
 
+    $(".myPropertyType").on('click',function() {
+        //alert( "ready!" );
+        $("#mySelect").append('<option value=res_indhouse>Independent House </option>');
         
-       
+        $("#myLocation").empty();    
+        $("#myLocation").append('<option value=NILL></option>');
+        $("#myLocation").append('<option value=Hyderabad>Hyderabad</option>');
+        $("#myLocation").append('<option value=Chennai>Chennai</option>');
+        $("#myLocation").append('<option value=Banglore>Banglore</option>');
+        $("#myLocation").append('<option value=Mumbai>Mumbai</option>');
+        $("#myLocation").append('<option value=Delhi>Delhi</option>');
+        $("#myLocation").append('<option value=Kolkata>Kolkata</option>');
+        $("#myLocation").append('<option value=Other7>Other</option>');
+        
+        $("#myLocality").empty();    
+        $("#myLocality").append('<option value=NILL></option>');
+        $("#myLocality").append('<option value=Kukatpally>Kukatpally</option>');
+        $("#myLocality").append('<option value=Hitech-City>Hitech-City</option>');
+        $("#myLocality").append('<option value=AmeerPet>AmeerPet</option>');
+        $("#myLocality").append('<option value=Guindy>Guindy</option>');
+        $("#myLocality").append('<option value=Velachery>Velachery</option>');
+        $("#myLocality").append('<option value=Tambaram>Tambaram</option>');
+        $("#myLocality").append('<option value=Marathahalli>Marathahalli</option>');
+        $("#myLocality").append('<option value=Whitefield>Whitefield</option>');
+        $("#myLocality").append('<option value=Malleshwaram>Malleshwaram</option>');
+        
+        
+        $("#myArea").empty();
+        $("#myArea").append('<option value=NILL></option>');
+        $("#myArea").append('<option value=Sq.Ft>Sq.Ft</option>');
+        $("#myArea").append('<option value=Sq.Yards>Sq.Yards</option>');
+        $("#myArea").append('<option value=Sq.Meter>Sq.Meter</option>');
+        $("#myArea").append('<option value=Acres>Acres</option>');
+        $("#myArea").append('<option value=Hectares>Hectares</option>');
+        
+        $("#myBhk").empty();
+        $("#myBhk").append('<option value=NILL></option>');
+        $("#myBhk").append('<option value=1>1</option>');
+        $("#myBhk").append('<option value=2>2</option>');
+        $("#myBhk").append('<option value=3>3</option>');
+        $("#myBhk").append('<option value=4>4</option>');
+        $("#myBhk").append('<option value=5>5</option>');
+        $("#myBhk").append('<option value=6>6</option>');
+        $("#myBhk").append('<option value=7>7</option>');
+        $("#myBhk").append('<option value=8>8</option>');
+        $("#myBhk").append('<option value=9>9</option>');
+        $("#myBhk").append('<option value=10>10</option>');
+        
+        $("#myFloors").empty();
+        $("#myFloors").append('<option value=NILL></option>');
+        $("#myFloors").append('<option value=1>1</option>');
+        $("#myFloors").append('<option value=2>2</option>');
+        $("#myFloors").append('<option value=3>3</option>');
+        $("#myFloors").append('<option value=4>4</option>');
+        $("#myFloors").append('<option value=5>5</option>');
+        $("#myFloors").append('<option value=6>6</option>');
+        $("#myFloors").append('<option value=7>7</option>');
+        $("#myFloors").append('<option value=8>8</option>');
+        $("#myFloors").append('<option value=9>9</option>');
+        $("#myFloors").append('<option value=10>10</option>');
+        
+        $("#myFacing").empty();
+        $("#myFacing").append('<option value=NILL></option>');
+        $("#myFacing").append('<option value=EAST>EAST</option>');
+        $("#myFacing").append('<option value=WEST>WEST</option>');
+        $("#myFacing").append('<option value=SOUTH>SOUTH</option>');
+        $("#myFacing").append('<option value=NORTH>NORTH</option>');
+        
+        $("#myCarParking").empty();
+        $("#myCarParking").append('<option value=NILL></option>');
+        $("#myCarParking").append('<option value=1>1</option>');
+        $("#myCarParking").append('<option value=2>2</option>');
+        $("#myCarParking").append('<option value=3>3</option>');
+        
+        $("#myEvents").empty();
+        $("#myEvents").append('<option value=NILL></option>');
+        $("#myEvents").append('<option value=YES>YES</option>');
+        $("#myEvents").append('<option value=No>NO</option>');
+        
+        $("#myLibRoom").empty();
+        $("#myLibRoom").append('<option value=NILL></option>');
+        $("#myLibRoom").append('<option value=YES>YES</option>');
+        $("#myLibRoom").append('<option value=NO>NO</option>');
+        
+        $("#myFitCenter").empty();
+        $("#myFitCenter").append('<option value=NILL></option>');
+        $("#myFitCenter").append('<option value=YES>YES</option>');
+        $("#myFitCenter").append('<option value=NO>NO</option>');
+        
+        
+        $("#mySpa").empty();
+        $("#mySpa").append('<option value=NILL></option>');
+        $("#mySpa").append('<option value=YES>YES</option>');
+        $("#mySpa").append('<option value=NO>NO</option>');  
+        
+        
     });
     
     $("input[name=someRadioGroup]:radio").change(function () {
@@ -126,6 +125,10 @@ $(document ).ready(function() {
     });
 
     //To Alter Property Values
+
+    $("#rfirst").on('click',function() {
+        alert("hello");
+        });
     
     //Residential
     $("#first").on('click',function() {

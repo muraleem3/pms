@@ -22,6 +22,8 @@ Pms::Application.routes.draw do
       get "testpage" 
       get "testpage1"     
       post "get_properties"
+      post "get_buy_requests"
+      post "get_sell_requests"
       
     end
   end
