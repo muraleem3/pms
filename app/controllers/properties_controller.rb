@@ -1,16 +1,19 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only:[:edit,:show,:update,:destroy]
-
+  
   def listproperty		
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
+    #PropertyMailer.registration_confirmation(Property.first).deliver
+    PropertyMailer.match_property.deliver
   end
   
   def postrequirement
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
+    
   end
   
   def property_results
@@ -24,13 +27,13 @@ class PropertiesController < ApplicationController
     @property.features << Feature.new
     @properties = Property.all
   end
-
+  
   def sell_requests
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
   end
-
+  
   def testpage
     @property = Property.new
     @property.features << Feature.new
@@ -42,7 +45,7 @@ class PropertiesController < ApplicationController
     gon.width = "500px"
     gon.height = "500px"
   end
-
+  
   def show
     #show-Action
   end
@@ -60,6 +63,7 @@ class PropertiesController < ApplicationController
       
       respond_to do |format|
         if @property.save
+          # @properties = property.where(:order_type=buy) 
           format.html { redirect_to @property, notice: 'Property was successfully Listed' }
           #format.json { render action: 'show', status: :created, location: @exam }
         else
@@ -83,9 +87,10 @@ class PropertiesController < ApplicationController
   end
   
   def index
-    @properties=Property.all
+    @properties = Property.all
+    
   end
-
+  
   def update        
     respond_to do |format|
       if @property.update(property_params)
@@ -105,7 +110,7 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   def set_property
     @property = Property.find(params[:id])
   end
@@ -117,5 +122,4 @@ class PropertiesController < ApplicationController
                                      :features_attributes => [[:id,:property_bhk],:property_floors,:property_facing,
                                                               :property_carparking,:property_events,:property_libroom,:property_fitcenter,:property_spa])
   end
-
 end
