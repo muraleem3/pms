@@ -46,6 +46,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #HAML
+gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'haml-rails'
 gem 'devise'
 gem 'fog'
@@ -55,8 +57,10 @@ gem 'jquery-ui-rails', '4.1.0'
 gem 'jquery.fileupload-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
+gem 'actionmailer'
+gem 'clockwork'
 
-#STYLE-Bootstrap
+
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
 #

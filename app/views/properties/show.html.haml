@@ -1,4 +1,23 @@
-
-
-= link_to 'Edit', edit_property_path(@property),:class => "btn btn-success"
-= link_to 'Back', properties_path,:class => 'btn btn-primary'
+.container
+  .col-sm-1
+  .col-sm-10
+    .row
+    %h4 Request List
+    %table.table.table-striped.table-bordered.table-condensed.table-hover
+      %thead
+        %tr 
+          %th Owner
+          %th Location
+          %th Locality
+          %th Price
+          %th Mobile
+          %tbody  
+            %tr 
+              %td= @property.user.username
+              %td= @property.property_location
+              %td= @property.property_locality
+              %td= @property.property_max_price
+              %td= @property.user.mobile
+  
+    = link_to 'Edit', edit_property_path(@property),:class => "btn btn-success"
+    = link_to 'Back', properties_path,:class => 'btn btn-primary'

@@ -2,21 +2,21 @@ class PropertiesController < ApplicationController
   include PropertiesHelper
   before_action :set_property, only:[:edit,:show,:update,:destroy]
 
-
   def listproperty		
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
+    #PropertyMailer.registration_confirmation(Property.first).deliver
+    PropertyMailer.match_property.deliver
   end
   
   def postrequirement
     @property = Property.new
     @property.features << Feature.new
-    @properties = Property.all
+    @properties = Property.all    
   end
   
   def property_results
-
     @property = Property.new
     @property.features << Feature.new
     #@properties = Property.all
@@ -27,8 +27,7 @@ class PropertiesController < ApplicationController
 
   def get_properties
     @property = Property.new
-    @property.features << Feature.new    
-
+    @property.features << Feature.new  
     @properties = Property.where(get_properties_query).paginate(:page => params[:page], :per_page => 5)
     #@properties = Property.property_get_properties("sell",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
     render "property_results"   
@@ -46,7 +45,7 @@ class PropertiesController < ApplicationController
     @properties = Property.property_get_buy_requests("buy",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
     render "buy_requests"   
   end
-
+  
   def sell_requests
     @property = Property.new
     @property.features << Feature.new
@@ -59,7 +58,7 @@ class PropertiesController < ApplicationController
     @properties = Property.property_get_sell_requests("sell",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
     render "sell_requests"   
   end
-
+  
   def testpage
     @property = Property.new
     @property.features << Feature.new
@@ -83,7 +82,7 @@ class PropertiesController < ApplicationController
     gon.width = "800px"
     gon.height = "500px"
   end
-
+  
   def show
     #show-Action
   end
@@ -101,6 +100,7 @@ class PropertiesController < ApplicationController
       
       respond_to do |format|
         if @property.save
+          # @properties = property.where(:order_type=buy) 
           format.html { redirect_to @property, notice: 'Property was successfully Listed' }
           #format.json { render action: 'show', status: :created, location: @exam }
         else
@@ -125,9 +125,10 @@ class PropertiesController < ApplicationController
   end
   
   def index
-    @properties=Property.all
+    @properties = Property.all
+    
   end
-
+  
   def update        
     respond_to do |format|
       if @property.update(property_params)
@@ -147,18 +148,19 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   def set_property
     @property = Property.find(params[:id])
   end
   
   private
 
-    def property_params	
-      params.require(:property).permit(:property_type,:property_type_code,:property_location,
+  def property_params	
+    params.require(:property).permit(:property_type,:property_type_code,:property_location,
                                      :property_locality,:property_min_price,:property_max_price,:property_area_min,:property_area_measure,:order_type,:property_image_path,:property_title,:property_description,:avatar,
                                      :features_attributes => [[:id,:property_bhk],:property_floors,:property_facing,
                                                               :property_carparking,:property_events,:property_libroom,:property_fitcenter,:property_spa])
-    end
+
+  end
 
 end
