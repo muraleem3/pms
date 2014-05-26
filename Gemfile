@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'whenever', :require => false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 ruby '2.0.0'
@@ -46,8 +46,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 #HAML
-gem 'delayed_job'
-gem 'delayed_job_active_record'
 gem 'haml-rails'
 gem 'devise'
 gem 'fog'
@@ -58,7 +56,6 @@ gem 'jquery.fileupload-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-will_paginate'
 gem 'actionmailer'
-gem 'clockwork'
 
 
 gem 'bootstrap-sass', '~> 3.0.3.0'
