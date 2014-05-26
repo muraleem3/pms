@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
     @property.features << Feature.new
     @properties = Property.all
     #PropertyMailer.registration_confirmation(Property.first).deliver
-    PropertyMailer.match_property.deliver
+    #PropertyMailer.match_property.deliver
   end
   
   def postrequirement
@@ -27,7 +27,7 @@ class PropertiesController < ApplicationController
 
   def get_properties
     @property = Property.new
-    @property.features << Feature.new  
+    @property.features << Feature.new
     @properties = Property.where(get_properties_query).paginate(:page => params[:page], :per_page => 5)
     #@properties = Property.property_get_properties("sell",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
     render "property_results"   
@@ -42,20 +42,20 @@ class PropertiesController < ApplicationController
   def get_buy_requests
     @property = Property.new
     @property.features << Feature.new
-    @properties = Property.property_get_buy_requests("buy",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
+    @properties = Property.where(get_buy_requests_query).paginate(:page => params[:page], :per_page => 5)
     render "buy_requests"   
   end
   
   def sell_requests
     @property = Property.new
     @property.features << Feature.new
-    @properties = Property.get_sell_requests("sell").paginate(:page => params[:page], :per_page => 5).paginate(:page => params[:page], :per_page => 5)
+    @properties = Property.get_sell_requests("sell").paginate(:page => params[:page], :per_page => 5)
   end
 
   def get_sell_requests
     @property = Property.new
     @property.features << Feature.new
-    @properties = Property.property_get_sell_requests("sell",params[:property][:property_location],params[:property][:property_type_code]).paginate(:page => params[:page], :per_page => 5)
+    @properties = Property.where(get_sell_requests_query).paginate(:page => params[:page], :per_page => 5)
     render "sell_requests"   
   end
   
@@ -75,7 +75,7 @@ class PropertiesController < ApplicationController
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
-    @property = Property.find(141);
+    @property = Property.find(152);
     
     @map_data = GoogleMapProcessor.build_map_data([@property])
     gon.gmap_data = @map_data.to_json

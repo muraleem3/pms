@@ -1,14 +1,18 @@
 .footer
-  .footer-left
-    .title
-      QuickLinks  
-      = link_to "Contact us", contact_us_home_index_path, :class => 'btn btn-primary'
-      
-  .pull-right.text-muted
-    = raw("<i class = 'glyphicon glyphicon-copyright-mark'></i>#{link_to 'OstryaLabs.', 'http://www.ostryalabs.com', :class =>"text-muted"} All Rights Reserved")
-    = raw("<i class = 'fa fa-facebook fa-2x'></i>")
-    = raw("<i class = 'fa fa-twitter fa-2x'></i>")
-    = raw("<i class = 'fa fa-linkedin fa-2x'></i>") 
-    = raw("<i class = 'fa fa-google-plus fa-2x'></i>") 
-    = raw("<i class = 'fa fa-youtube fa-2x'></i>")
+  .col-xs-4.col-sm-4
+    .footer-left
+      .title
+        QuickLinks  
+        = link_to "Contact us", contact_us_home_index_path, :class => 'btn btn-primary'
+  .col-xs-4.col-sm-4
+
+  .col-xs-4.col-sm-4     
+    .pull-right.text-muted
+      = raw("<i class = 'glyphicon glyphicon-copyright-mark'></i>#{link_to 'OstryaLabs.', 'http://www.ostryalabs.com', :class =>"text-muted"} All Rights Reserved")
+      = raw("<i class = 'fa fa-facebook fa-2x'></i>")
+      = raw("<i class = 'fa fa-twitter fa-2x'></i>")
+      = raw("<i class = 'fa fa-linkedin fa-2x'></i>") 
+      = raw("<i class = 'fa fa-google-plus fa-2x'></i>") 
+      = raw("<i class = 'fa fa-youtube fa-2x'></i>") 
+   
 

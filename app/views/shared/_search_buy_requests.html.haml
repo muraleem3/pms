@@ -35,6 +35,7 @@
         = f.select(:property_locality,([["Select One"],["#{get_selected_locality(f.object.property_locality)}",f.object.property_locality]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_locality}"]},:class=>"form-control",:id => "myLocality")
       .col-xs-3.col-sm-3
         .form-group
+        = f.hidden_field :order_type,:value => "buy"
         = raw("<i class = 'fa fa-search fa-3x'></i>")
         = f.submit "Search", :class => 'btn btn-primary'
 %br

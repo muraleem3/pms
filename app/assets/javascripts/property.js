@@ -22,8 +22,9 @@ $(document ).ready(function() {
     //TO pOPULATE cOMMON seLECT tyPES
 
     $(".myPropertyType").on('click',function() {
+       
         //alert( "ready!" );
-        $("#mySelect").append('<option value=res_indhouse>Independent House </option>');
+        
         
         $("#myLocation").empty();    
         $("#myLocation").append('<option value=NILL></option>');
@@ -114,25 +115,15 @@ $(document ).ready(function() {
         $("#mySpa").empty();
         $("#mySpa").append('<option value=NILL></option>');
         $("#mySpa").append('<option value=YES>YES</option>');
-        $("#mySpa").append('<option value=NO>NO</option>');  
-        
-        
+        $("#mySpa").append('<option value=NO>NO</option>');          
     });
     
-    $("input[name=someRadioGroup]:radio").change(function () {
-        alert("it's checked  ");
-        
-    });
-
     //To Alter Property Values
-
-    $("#rfirst").on('click',function() {
-        alert("hello");
-        });
     
     //Residential
     $("#first").on('click',function() {
         $("#propertyType").val("Residential");
+        $('label.active').removeClass('active');
         
         $('#mySelect').empty();
         $('#myBhk').removeAttr('disabled');
@@ -144,6 +135,7 @@ $(document ).ready(function() {
         $('#myFitCenter').attr('disabled', 'disabled');
         $('#mySpa').attr('disabled', 'disabled');
 
+        $("#mySelect").append('<option value=NILL></option>');
         $("#mySelect").append('<option value=res_indhouse>Independent House </option>');
         $("#mySelect").append('<option value=res_aptmnt>Apartment </option>');
         $("#mySelect").append('<option value=res_villa>Independent Villa </option>');           
@@ -155,8 +147,7 @@ $(document ).ready(function() {
     //Commercial
     $("#second").on('click',function() {
         $("#propertyType").val("Commercial");
-
-        //alert();
+        $('label.active').removeClass('active');
         
         $('#mySelect').empty(); 
         $('#myBhk').attr('disabled',true);
@@ -168,6 +159,7 @@ $(document ).ready(function() {
         $('#myFitCenter').removeAttr('disabled');
         $('#mySpa').removeAttr('disabled');
 
+        $("#mySelect").append('<option value=NILL></option>');
         $("#mySelect").append('<option value=com_space>Commercial Space</option>');
         $("#mySelect").append('<option value=com_office>Office Space</option>');
         $("#mySelect").append('<option value=com_itpark>IT/Software Technology Park</option>');           
@@ -180,7 +172,8 @@ $(document ).ready(function() {
     //Land
     $("#third").on('click',function() {
         $("#propertyType").val("Land");
-       
+        $('label.active').removeClass('active');
+
         $('#mySelect').empty();
         $('#myBhk').attr('disabled', 'disabled');
         $('#myFloors').attr('disabled', 'disabled');
@@ -191,7 +184,7 @@ $(document ).ready(function() {
         $('#myFitCenter').attr('disabled', 'disabled');
         $('#mySpa').attr('disabled', 'disabled');
         
-        
+        $("#mySelect").append('<option value=NILL></option>');
         $("#mySelect").append('<option value=lnd_resland>Residential Land</option>');
         $("#mySelect").append('<option value=lnd_comland>Commercial Land</option>');
         $("#mySelect").append('<option value=lnd_indland>Industrial Land</option>');           
@@ -203,7 +196,8 @@ $(document ).ready(function() {
 
     //Rent/Lease
     $("#four").on('click',function() {
-        $("#propertyType").val("RentLease");        
+        $("#propertyType").val("RentLease");  
+        $('label.active').removeClass('active');
        
         $('#mySelect').empty();
         $('#myBhk').removeAttr('disabled');
@@ -217,7 +211,7 @@ $(document ).ready(function() {
         $('#mySpa').removeAttr('disabled');
 
 
-       
+        $("#mySelect").append('<option value=NILL></option>');
         $("#mySelect").append('<option value=rl_aptmnt>Apartments/Flats</option>');
         $("#mySelect").append('<option value=rl_indhouse>Individual Houses</option>');
         $("#mySelect").append('<option value=rl_villas>Villas</option>');           
@@ -228,21 +222,15 @@ $(document ).ready(function() {
     
 
     //To change The Button Color
-    $('input[thisype="submit"]').click(function(){
-        $(this).toggleClass('blue');
-    }); 
-
+          
+   
     $("#mySelect").on('change',function() {
-        alert($(this).val());
-
+        //alert($(this).val());
         if ($(this).val() == 'res_indhouse') {
             
         } 
         else if ($(this).val() == 'lnd_comland') {
-            $('#mySelect_Bhk').empty();
             
-            $("#mySelect_Bhk").append('<option value=1>Commercial Space</option>');
-            $("#mySelect_Bhk").append('<option value=12>Office Space</option>');
         } 
     });
 

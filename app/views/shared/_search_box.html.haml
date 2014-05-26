@@ -50,7 +50,8 @@
           = f.select(:property_area_measure,([["Select One"],["#{get_selected_area_measure(f.object.property_area_measure)}",f.object.property_area_measure]]),{ :disabled => ["Select One"],:include_blank=>true ,:selected => ["#{f.object.property_area_measure}"]},:class=>"form-control",:id => "myArea")
         .col-xs-3.col-sm-3 
           .col-xs-3.col-sm-3 
-            .form-group            
+            .form-group  
+              = f.hidden_field :order_type,:value => "sell"          
               = raw("<i class = 'fa fa-search fa-4x'></i>")
               = f.submit "Search", :class => 'btn btn-primary'
       .col-xs-12.col-sm-12

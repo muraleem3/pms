@@ -182,32 +182,50 @@ module PropertiesHelper
 
   #To Get a Property Query
   def get_properties_query
-    check="false"
+
+    s1='"properties"."order_type" = '+"'#{params[:property][:order_type]}'"
     if params[:property][:property_type] != 0 && params[:property][:property_type] != "NILL"  && params[:property][:property_type].present?
-      if check=="true"
-        s1=s1+" AND "+'"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
-      else
-        s1='"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
-        check="true"
-      end
+      s1=s1+" AND "+'"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
     end
-    if params[:property][:property_type_code] != 0 && params[:property][:property_type_code] != "NILL"  && params[:property][:property_type_code].present?
-      if check=="true"
-        s1=s1+" AND "+'"properties"."property_type_code" = '+"'#{params[:property][:property_type_code]}'"
-      else
-        s1='"properties"."property_type_code" = '+"'#{params[:property][:property_type_code]}'"
-        check="true"
-      end
+    if params[:property][:property_type_code] != 0 && params[:property][:property_type_code] != "NILL"  && params[:property][:property_type_code].present?      
+      s1=s1+" AND "+'"properties"."property_type_code" = '+"'#{params[:property][:property_type_code]}'"
     end
-    if params[:property][:property_location] != 0 && params[:property][:property_location] != "NILL"  && params[:property][:property_location].present?
-      if check=="true"
-        s1=s1+" AND "+'"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
-      else
-        s1='"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
-        check="true"
-      end
+    if params[:property][:property_location] != 0 && params[:property][:property_location] != "NILL"  && params[:property][:property_location].present?     
+      s1=s1+" AND "+'"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
     end
+    if params[:property][:property_locality] != 0 && params[:property][:property_locality] != "NILL"  && params[:property][:property_locality].present?     
+      s1=s1+" AND "+'"properties"."property_locality" = '+"'#{params[:property][:property_locality]}'"     
+    end   
+  return s1
+  end
+
+  #To Get a buy-requests Query
+  def get_buy_requests_query
+    s1='"properties"."order_type" = '+"'#{params[:property][:order_type]}'"
+    if params[:property][:property_type] != 0 && params[:property][:property_type] != "NILL"  && params[:property][:property_type].present?
+      s1=s1+" AND "+'"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
+    end
+    if params[:property][:property_location] != 0 && params[:property][:property_location] != "NILL"  && params[:property][:property_location].present?     
+      s1=s1+" AND "+'"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
+    end
+    if params[:property][:property_locality] != 0 && params[:property][:property_locality] != "NILL"  && params[:property][:property_locality].present?     
+      s1=s1+" AND "+'"properties"."property_locality" = '+"'#{params[:property][:property_locality]}'"     
+    end      
     return s1
   end
 
+  #To Get a sell-requests Query
+  def get_sell_requests_query
+    s1='"properties"."order_type" = '+"'#{params[:property][:order_type]}'"
+    if params[:property][:property_type] != 0 && params[:property][:property_type] != "NILL"  && params[:property][:property_type].present?
+      s1=s1+" AND "+'"properties"."property_type" = '+"'#{params[:property][:property_type]}'"
+    end
+    if params[:property][:property_location] != 0 && params[:property][:property_location] != "NILL"  && params[:property][:property_location].present?     
+      s1=s1+" AND "+'"properties"."property_location" = '+"'#{params[:property][:property_location]}'"
+    end
+    if params[:property][:property_locality] != 0 && params[:property][:property_locality] != "NILL"  && params[:property][:property_locality].present?     
+      s1=s1+" AND "+'"properties"."property_locality" = '+"'#{params[:property][:property_locality]}'"     
+    end      
+    return s1
+  end
 end
