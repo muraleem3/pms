@@ -22,6 +22,6 @@ env :PATH, ENV['PATH']
 
 set :output, "/home/ostryalabs/Desktop/cron.log"
 
-every :day, :at => '10:15pm' do
+every :day, :at => '01:12pm' do
   runner "PropertyMailer.match_property.deliver", :environment => "development"
 end

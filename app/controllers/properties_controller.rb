@@ -1,11 +1,16 @@
 class PropertiesController < ApplicationController
   include PropertiesHelper
+  include SMSFu
   before_action :set_property, only:[:edit,:show,:update,:destroy]
 
   def listproperty		
     @property = Property.new
     @property.features << Feature.new
     @properties = Property.all
+    # ActionMailer delivery
+    #sms_fu = SMSFu::Client.configure(:delivery => :action_mailer)
+    #sms_fu.deliver("5558675309","at&t","message")
+
     #PropertyMailer.registration_confirmation(Property.first).deliver
     #PropertyMailer.match_property.deliver
   end
